@@ -1,0 +1,44 @@
+﻿@using Edesoft.ERP.MVC.MVC
+@using Edesoft.ERP.Tools;
+
+<!DOCTYPE html>
+<html class="">
+<head>
+    @{ Html.RenderPartial("~/Views/Shared/_head.cshtml"); }
+
+    @RenderSection("styles", required: false)
+</head>
+<body class="theme-blue">
+
+    <div id="app" class="app app-header-fixed app-sidebar-fixed app-gradient-enabled app-with-light-sidebar">
+
+        @{
+            Html.RenderPartial("~/Views/Shared/_header.cshtml");
+
+            Html.RenderPartial("~/Views/Shared/_sidebar.cshtml");
+        }
+
+        <div data-id="app-extra-elm"></div>
+        <div id="content" class="app-content">
+            @RenderBody()
+        </div>
+
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top"
+           data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
+    </div>
+
+    @{ Html.RenderPartial("~/Views/Shared/_script.cshtml");}
+
+    <script>
+        App.setPageOption({
+            appSidebarMinified: false,
+            clearOptionOnLeave: true,
+            appContentFullHeight: true,
+        })
+        App.restartGlobalFunction();
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

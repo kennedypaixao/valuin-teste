@@ -1,0 +1,20 @@
+﻿@using Edesoft.ERP.MVC.MVC.resources;
+
+<meta charset="@Constants.meta.charset" />
+
+<title>@Constants.CompanyShortName @Constants.ModuleName @(!string.IsNullOrEmpty(ViewBag.Title) ? " - " + ViewBag.Title: "")</title>
+
+@foreach (var meta in Constants.meta.meta)
+{
+    <meta content="@meta.Value" name="@meta.Key" />
+}
+
+<!-- ================== BEGIN core-css ================== -->
+<link href="~/Content/assets/css/vendor.min.css" rel="stylesheet" />
+<link href="~/Content/assets/css/default/app.min.css" rel="stylesheet" />
+
+<link href="~/Content/assets/edesoft/css/edesoft.css" rel="stylesheet" />
+
+<link rel="dx-theme" data-theme="generic.softblue" href="~/Content/assets/plugins/Devexpress/css/dx.softblue.css" data-active="true" />
+<link rel="dx-theme" data-theme="generic.dark" href="~/Content/assets/plugins/Devexpress/css/dx.dark.css" data-active="false" />
+<!-- ================== END core-css ================== -->

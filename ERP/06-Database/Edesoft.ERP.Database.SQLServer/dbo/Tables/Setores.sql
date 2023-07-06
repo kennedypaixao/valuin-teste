@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Setores] (
+    [Id]   UNIQUEIDENTIFIER NOT NULL,
+    [Nome] VARCHAR (100)    NOT NULL,
+    CONSTRAINT [PK_Setores] PRIMARY KEY CLUSTERED ([Id] ASC)
+);

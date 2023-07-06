@@ -1,0 +1,51 @@
+﻿@using Edesoft.ERP.MVC.MVC;
+
+@{
+    var modulos = SideMenu.GetModulos();
+
+
+    foreach (var modulo in modulos)
+    {
+        @CreateMenu(modulo);
+    }
+}
+
+@helper  CreateMenu(Modulo modulo)
+{
+    <div class="menu-header menu-item">
+        <h4>@modulo.Descricao</h4>
+    </div>
+    foreach (var menu in modulo.Menus)
+    {
+        @CreateMenuItem(menu)
+    }
+}
+
+@helper CreateMenuItem(Menu menu)
+{
+    <div class="menu-item @(menu.Itens.Count() > 0? "has-sub": "")">
+        <a href=@(menu.Link != ""? $"#/{@menu.Link}":"javascript:;") data-toggle=@(menu.Link != ""?"ajax":"false") class="menu-link">
+            <div class="menu-icon">
+                <i class="@menu.ClassIcon @menu.Icon"></i>
+            </div>
+            <div class="menu-text">@menu.Descricao</div>
+            @if (menu.Itens.Count() > 0)
+            {
+                <div class="menu-caret"></div>
+            }
+        </a>
+
+        @if (menu.Itens.Count() > 0)
+        {
+            <div class="menu-submenu">
+                @foreach (var item in menu.Itens)
+                {
+                    @CreateMenuItem(item);
+                }
+            </div>
+        }
+
+    </div>
+}
+
+

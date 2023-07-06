@@ -1,0 +1,24 @@
+﻿<ol class="breadcrumb float-xl-end">
+    <li class="breadcrumb-item template"></li>
+</ol>
+
+<script>
+    $(document).ready(function () {
+        const $itemTemplate = $(".breadcrumb-item", $(".breadcrumb")).clone();
+        $(".breadcrumb").empty();
+
+        var elm = document.querySelector(app.sidebar.id + ' [' + app.ajax.attr + '][href="' + window.location.hash + '"]');
+        if (elm) {
+            var targetElms = getParents(elm);
+            if (targetElms) {
+                targetElms.slice(0).reverse().map(function (targetElm) {
+                    if (targetElm.classList && targetElm.classList.contains(app.sidebar.menu.itemClass)) {
+                        const $el = $itemTemplate.clone();
+                        $el.text(targetElm.querySelector(`.menu-text`).textContent);
+                        $(".breadcrumb").append($el);
+                    }
+                });
+            }
+        }
+    });
+</script>

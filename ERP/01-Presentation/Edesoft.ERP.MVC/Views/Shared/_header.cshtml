@@ -1,0 +1,31 @@
+﻿@using Edesoft.ERP.MVC.MVC.resources;
+@using Edesoft.ERP.Tools.Security;
+
+<div id="header" class="app-header">
+
+    <div class="navbar-header">
+        <a href="" class="navbar-brand">
+			<img src="~/Content/assets/img/Valuin/logo_valuin_desktop.svg" style="width: 52px; object-fit: fill;" />
+        </a>
+        <button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <div class="navbar-nav">
+        <div class="navbar-item navbar-user dropdown">
+            <a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
+                <img src="@Url.Content("~/Home/ImageProfile")" alt="">
+                <span>
+                    <span class="d-none d-md-inline">@SessionPersister.User.Name</span>
+                    <b class="caret"></b>
+                </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end me-1">
+                <a href="@Url.Content("~/Account/Logoff")" class="dropdown-item">Log Out</a>
+            </div>
+        </div>
+    </div>
+</div>

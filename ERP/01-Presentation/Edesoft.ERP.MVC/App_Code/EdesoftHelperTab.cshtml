@@ -1,0 +1,30 @@
+﻿@using Edesoft.ERP.MVC.MVC.Pages.Helpers;
+
+@helper CreateTabNavigation(TabHeper Tab)
+{
+    <ul class="nav nav-tabs nav-tabs-v2">
+        @{
+            var firstClass = "active";
+        }
+        @foreach (var tab in Tab.NavigationTabs)
+        {
+            <li class="nav-item">
+                <a href=".@tab.TabContent.Id" data-bs-toggle="tab" class="nav-link @tab.TabContent.Id @firstClass">@tab.Caption</a>
+            </li>
+
+            firstClass = "";
+        }
+    </ul>
+    <div class="tab-content panel rounded-0 p-3 m-0">
+
+        @{ firstClass = "active show"; }
+        @foreach (var tab in Tab.NavigationTabs)
+        {
+            <div class="tab-pane fade @tab.TabContent.Id @firstClass">
+                @tab.TabContent.Content
+            </div>
+
+            firstClass = "";
+        }
+    </div>
+}

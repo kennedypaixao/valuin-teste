@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2305EBEE-47B8-476F-BE2A-86C442246938}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Edesoft.ERP.Domain</RootNamespace>
+    <AssemblyName>Edesoft.ERP.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBase\Ativos.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\CEP.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Cidade.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Clientes.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Contratante.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\ContratanteModules.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Corporacao.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Edesoft.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edesoft.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Edesoft.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Edesoft.DataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edesoft.DataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Modules.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Pais.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Perfis.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\PerfisRoles.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Role.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\RoleModules.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Seed\Custom\EdesoftCustomRolesDefinition.cs" />
+    <Compile Include="DataBase\Seed\Custom\EdesoftCustomRolesSeeder.cs" />
+    <Compile Include="DataBase\Seed\Custom\EdesoftCustomSeed.cs" />
+    <Compile Include="DataBase\Seed\EdesoftRoleSeeder.cs" />
+    <Compile Include="DataBase\Setores.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\SubSetores.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\UF.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Usuarios.cs">
+      <DependentUpon>Edesoft.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\01-Global\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\01-Global\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\Backoffice\Cliente\IClienteRepository.cs" />
+    <Compile Include="Interfaces\Edesoft\ICEPRepository.cs" />
+    <Compile Include="Interfaces\Security\ISecurityRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <Compile Include="DataBase\Seed\Edesoft.DataBase.Context.cs" />
+    <EntityDeploy Include="DataBase\Edesoft.DataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Edesoft.DataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataBase\Edesoft.DataBase.edmx.diagram">
+      <DependentUpon>Edesoft.DataBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\02-Application\Edesoft.ERP.DTO.Interfaces\Edesoft.ERP.DTO.Interfaces.csproj">
+      <Project>{80f75be4-c97e-4178-a1ce-4e646cb4dda3}</Project>
+      <Name>Edesoft.ERP.DTO.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\05-Tools\Edesoft.ERP.Tools\Edesoft.ERP.Tools.csproj">
+      <Project>{b6ecf273-8315-44cf-a928-01751359dd08}</Project>
+      <Name>Edesoft.ERP.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\07-Shared\Edesoft.ERP.Shared\Edesoft.ERP.Shared.csproj">
+      <Project>{09c96c4c-6040-488c-8779-e8a3ae833eb8}</Project>
+      <Name>Edesoft.ERP.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase\Edesoft.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Edesoft.DataBase.edmx</DependentUpon>
+      <LastGenOutput>Edesoft.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBase\Edesoft.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Edesoft.DataBase.edmx</DependentUpon>
+      <LastGenOutput>Edesoft.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

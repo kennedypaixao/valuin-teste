@@ -1,0 +1,19 @@
+﻿@using Edesoft.ERP.MVC.MVC.resources;
+
+@{ Html.RenderPartial("~/Views/Shared/_breadcrumb.cshtml"); }
+
+<!-- BEGIN page-header -->
+<h1 class="page-header">@ViewBag.Title <small>@ViewBag.Subtitle</small></h1>
+<!-- END page-header -->
+
+@RenderBody()
+
+<script type="text/javascript">
+    App.setPageTitle('@Constants.CompanyShortName |  @Html.Raw(ViewBag.Title)');
+    App.restartGlobalFunction();
+    App.setPageOption({
+        appSidebarMinified: false,
+        clearOptionOnLeave: true,
+        appContentFullHeight: true,
+    })
+</script>

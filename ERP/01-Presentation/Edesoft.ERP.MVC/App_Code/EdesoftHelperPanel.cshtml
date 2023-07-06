@@ -1,0 +1,34 @@
+﻿@using Edesoft.ERP.MVC.MVC.Pages.Helpers;
+
+@helper CreatePanel(Edesoft.ERP.MVC.MVC.Pages.Helpers.PanelHelper Setup)
+{
+    <div class="panel @(Setup.Inverse? "panel-inverse": "panel-default")">
+        <div class="panel-heading">
+            @if (Setup.HeadingButtons.Count > 0)
+            {
+                foreach (var button in Setup.HeadingButtons)
+                {
+                    <div class="panel-heading-btn">
+                        @EdesoftHelperButton.CreateButton(button)
+                    </div>
+                }
+
+            }
+            else
+            {
+                <h4 class="panel-title">@Setup.HeadingText</h4>
+            }
+
+            @if (Setup.ShowDefaultButtonsHeading)
+            {
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-default" data-toggle="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-warning" data-toggle="panel-collapse"><i class="fa fa-minus"></i></a>
+                </div>
+            }
+        </div>
+        <div class="panel-body @(Setup.Inverse? "bg-gray-400":"")">
+            @Setup.Body
+        </div>
+    </div>
+}

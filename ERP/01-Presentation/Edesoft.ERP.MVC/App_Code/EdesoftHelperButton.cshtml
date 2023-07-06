@@ -1,0 +1,12 @@
+﻿@using Edesoft.ERP.MVC.MVC.Pages.Helpers;
+
+@helper CreateButton(Edesoft.ERP.MVC.MVC.Pages.Helpers.ButtonHelper Setup)
+{
+    <a href="javascript:;" class="btn @Setup.Type @Setup.Name" data-bs-dismiss='@(Setup.Dismiss?"modal":"")'>
+        @if (Setup.Icon != string.Empty)
+        {
+            <i class="fa @Setup.Icon"></i>
+        }
+        @Setup.Text
+    </a>
+}

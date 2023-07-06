@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2b207cba7534272a4ea90d775c59fc1" Name="Diagram1">
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Ativos" Width="1.5" PointX="14.25" PointY="13.75" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Clientes" Width="1.5" PointX="9.75" PointY="6.625" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Contratante" Width="1.5" PointX="3" PointY="5.125" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.ContratanteModules" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Corporacao" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Modules" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Perfis" Width="1.5" PointX="5.25" PointY="8" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.PerfisRoles" Width="1.5" PointX="7.5" PointY="10.875" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Role" Width="1.5" PointX="5.25" PointY="11.375" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.RoleModules" Width="1.5" PointX="12.5" PointY="6.875" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Setores" Width="1.5" PointX="9.75" PointY="12.5" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.SubSetores" Width="1.5" PointX="12" PointY="15.75" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Usuarios" Width="1.5" PointX="7.5" PointY="6.25" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.CEP" Width="1.5" PointX="14.5" PointY="1.625" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Cidade" Width="1.5" PointX="12.25" PointY="1.75" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.Pais" Width="1.5" PointX="7.75" PointY="1.875" />
+        <EntityTypeShape EntityType="Edesoft.DataBase.Model.UF" Width="1.5" PointX="10" PointY="1.625" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_AtivosSetor" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_AtivosSubSetor" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_Cliente_Usuarios" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_Contratante_Corporacao" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_ContratanteModules_Contratante" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_Perfis_Contratante" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_Usuarios_Contratante" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_ContratanteModules_Modules" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_ModuloSistema_ModuloSistema" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_ModuloSistema" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_PerfisRoles_Perfis" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_PerfisRoles_Role" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_MenuSideBar_MenuSideBar" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_MenuSideBar1" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_SubSetoresSetores" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_CEP_Cidade" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_Cidade_UF" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.FK_UF_Pais1" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.UsuarioCliente" />
+        <AssociationConnector Association="Edesoft.DataBase.Model.UsuarioPerfis" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Clientes Backoffice";
+    ViewBag.Subtitle = "Cadastro dos clientes a serem utilizados no sistema";
+}
+
+<div class="cliente-backoffice-wrapper"></div>
+
+<script>
+    helperEdesoft.onready(async () => {
+        await helperEdesoft.Loader.script(helperEdesoft.Functions.getPath("Content/js/Backoffice/Cliente/Index.js"));
+        ClienteBackofficeIndexPage.init({
+            context: ".cliente-backoffice-wrapper",
+            urlViewModal: helperEdesoft.Functions.getPath("ClienteBackoffice/_modal")
+        });
+    });
+</script>

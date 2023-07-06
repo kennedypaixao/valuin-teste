@@ -1,0 +1,1624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{462BC259-484B-4BDC-ACDA-AF04FBA98BAF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Edesoft.ERP.MVC</RootNamespace>
+    <AssemblyName>Edesoft.ERP.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Backoffice\AtivosBackoffice\AtivosBackofficeController.cs" />
+    <Compile Include="Controllers\Backoffice\ClienteBackofficeController.cs" />
+    <Compile Include="Controllers\Backoffice\Setor\SubSetoresBackofficeController.cs" />
+    <Compile Include="Controllers\Backoffice\Setor\SetoresBackofficeController.cs" />
+    <Compile Include="Controllers\Common\FileController.cs" />
+    <Compile Include="Controllers\Edesoft\CEPController.cs" />
+    <Compile Include="Controllers\Seguranca\UsuariosController.cs" />
+    <Compile Include="Controllers\Edesoft\AccountController.cs" />
+    <Compile Include="Controllers\Edesoft\EdesoftCommonController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\DecimalModelBinder.cs" />
+    <Compile Include="MVC\EdesoftController.cs" />
+    <Compile Include="MVC\Pages\Helpers\ButtonHelper.cs" />
+    <Compile Include="MVC\Pages\Helpers\ModalHelper.cs" />
+    <Compile Include="MVC\Pages\Helpers\PanelHelper.cs" />
+    <Compile Include="MVC\Pages\Helpers\TabHelper.cs" />
+    <Compile Include="MVC\SideMenu.cs" />
+    <Compile Include="MVC\resources\Constants.cs" />
+    <Compile Include="MVC\Security\CustomPrincipal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Global\ResultJsonViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\css\apple\app-rtl.min.css" />
+    <Content Include="Content\assets\css\apple\app.min.css" />
+    <Content Include="Content\assets\css\apple\images\bg-login-dark-mode.png" />
+    <Content Include="Content\assets\css\apple\images\bg-login.png" />
+    <Content Include="Content\assets\css\apple\images\coming-soon.jpg" />
+    <Content Include="Content\assets\css\apple\images\cover-pattern.png" />
+    <Content Include="Content\assets\css\apple\images\cover-sidebar-user.jpg" />
+    <Content Include="Content\assets\css\apple\images\cover-sidebar.jpg" />
+    <Content Include="Content\assets\css\apple\images\error-page-pattern.png" />
+    <Content Include="Content\assets\css\apple\images\profile-cover.jpg" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.1.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.2.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.3.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.4.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.5.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.6.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.7.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.8.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\black-0.9.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.1.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.2.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.3.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.4.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.5.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.6.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.7.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.8.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.9.png" />
+    <Content Include="Content\assets\css\apple\images\transparent\white-0.98.png" />
+    <Content Include="Content\assets\css\apple\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\assets\css\apple\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\assets\css\apple\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\assets\css\apple\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\assets\css\apple\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\assets\css\apple\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\default\app-rtl.min.css" />
+    <Content Include="Content\assets\css\default\app.min.css" />
+    <Content Include="Content\assets\css\default\images\bg-login-dark-mode.png" />
+    <Content Include="Content\assets\css\default\images\bg-login.png" />
+    <Content Include="Content\assets\css\default\images\coming-soon.jpg" />
+    <Content Include="Content\assets\css\default\images\cover-pattern.png" />
+    <Content Include="Content\assets\css\default\images\cover-sidebar-user.jpg" />
+    <Content Include="Content\assets\css\default\images\cover-sidebar.jpg" />
+    <Content Include="Content\assets\css\default\images\error-page-pattern.png" />
+    <Content Include="Content\assets\css\default\images\profile-cover.jpg" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.1.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.2.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.3.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.4.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.5.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.6.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.7.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.8.png" />
+    <Content Include="Content\assets\css\default\images\transparent\black-0.9.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.1.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.2.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.3.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.4.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.5.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.6.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.7.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.8.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.9.png" />
+    <Content Include="Content\assets\css\default\images\transparent\white-0.98.png" />
+    <Content Include="Content\assets\css\default\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\assets\css\default\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\assets\css\default\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\assets\css\default\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\assets\css\default\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\assets\css\default\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\facebook\app-rtl.min.css" />
+    <Content Include="Content\assets\css\facebook\app.min.css" />
+    <Content Include="Content\assets\css\facebook\images\bg-login-dark-mode.png" />
+    <Content Include="Content\assets\css\facebook\images\bg-login.png" />
+    <Content Include="Content\assets\css\facebook\images\coming-soon.jpg" />
+    <Content Include="Content\assets\css\facebook\images\cover-pattern.png" />
+    <Content Include="Content\assets\css\facebook\images\cover-sidebar-user.jpg" />
+    <Content Include="Content\assets\css\facebook\images\cover-sidebar.jpg" />
+    <Content Include="Content\assets\css\facebook\images\error-page-pattern.png" />
+    <Content Include="Content\assets\css\facebook\images\profile-cover.jpg" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.1.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.2.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.3.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.4.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.5.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.6.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.7.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.8.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\black-0.9.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.1.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.2.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.3.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.4.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.5.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.6.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.7.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.8.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.9.png" />
+    <Content Include="Content\assets\css\facebook\images\transparent\white-0.98.png" />
+    <Content Include="Content\assets\css\facebook\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\assets\css\facebook\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\assets\css\facebook\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\assets\css\facebook\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\assets\css\facebook\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\assets\css\facebook\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\google\app-rtl.min.css" />
+    <Content Include="Content\assets\css\google\app.min.css" />
+    <Content Include="Content\assets\css\google\images\bg-login-dark-mode.png" />
+    <Content Include="Content\assets\css\google\images\bg-login.png" />
+    <Content Include="Content\assets\css\google\images\coming-soon.jpg" />
+    <Content Include="Content\assets\css\google\images\cover-pattern.png" />
+    <Content Include="Content\assets\css\google\images\cover-sidebar-user.jpg" />
+    <Content Include="Content\assets\css\google\images\cover-sidebar.jpg" />
+    <Content Include="Content\assets\css\google\images\error-page-pattern.png" />
+    <Content Include="Content\assets\css\google\images\profile-cover.jpg" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.1.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.2.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.3.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.4.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.5.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.6.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.7.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.8.png" />
+    <Content Include="Content\assets\css\google\images\transparent\black-0.9.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.1.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.2.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.3.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.4.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.5.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.6.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.7.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.8.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.9.png" />
+    <Content Include="Content\assets\css\google\images\transparent\white-0.98.png" />
+    <Content Include="Content\assets\css\google\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\assets\css\google\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\assets\css\google\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\assets\css\google\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\assets\css\google\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\assets\css\google\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\material\app-rtl.min.css" />
+    <Content Include="Content\assets\css\material\app.min.css" />
+    <Content Include="Content\assets\css\material\images\bg-login-dark-mode.png" />
+    <Content Include="Content\assets\css\material\images\bg-login.png" />
+    <Content Include="Content\assets\css\material\images\coming-soon.jpg" />
+    <Content Include="Content\assets\css\material\images\cover-pattern.png" />
+    <Content Include="Content\assets\css\material\images\cover-sidebar-user.jpg" />
+    <Content Include="Content\assets\css\material\images\cover-sidebar.jpg" />
+    <Content Include="Content\assets\css\material\images\error-page-pattern.png" />
+    <Content Include="Content\assets\css\material\images\profile-cover.jpg" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.1.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.2.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.3.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.4.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.5.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.6.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.7.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.8.png" />
+    <Content Include="Content\assets\css\material\images\transparent\black-0.9.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.1.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.2.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.3.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.4.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.5.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.6.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.7.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.8.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.9.png" />
+    <Content Include="Content\assets\css\material\images\transparent\white-0.98.png" />
+    <Content Include="Content\assets\css\material\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\assets\css\material\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\assets\css\material\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\assets\css\material\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\assets\css\material\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\assets\css\material\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\transparent\app-rtl.min.css" />
+    <Content Include="Content\assets\css\transparent\app.min.css" />
+    <Content Include="Content\assets\css\transparent\images\bg-login-dark-mode.png" />
+    <Content Include="Content\assets\css\transparent\images\bg-login.png" />
+    <Content Include="Content\assets\css\transparent\images\coming-soon.jpg" />
+    <Content Include="Content\assets\css\transparent\images\cover-pattern.png" />
+    <Content Include="Content\assets\css\transparent\images\cover-sidebar-user.jpg" />
+    <Content Include="Content\assets\css\transparent\images\cover-sidebar.jpg" />
+    <Content Include="Content\assets\css\transparent\images\error-page-pattern.png" />
+    <Content Include="Content\assets\css\transparent\images\page-cover-v2.jpg" />
+    <Content Include="Content\assets\css\transparent\images\page-cover.jpg" />
+    <Content Include="Content\assets\css\transparent\images\profile-cover.jpg" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.1.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.2.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.3.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.4.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.5.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.6.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.7.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.8.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\black-0.9.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.1.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.2.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.3.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.4.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.5.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.6.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.7.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.8.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.9.png" />
+    <Content Include="Content\assets\css\transparent\images\transparent\white-0.98.png" />
+    <Content Include="Content\assets\css\transparent\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\assets\css\transparent\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\assets\css\transparent\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\assets\css\transparent\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\assets\css\transparent\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\assets\css\transparent\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\vendor.min.css" />
+    <Content Include="Content\assets\edesoft\css\edesoft.config.css" />
+    <Content Include="Content\assets\edesoft\css\edesoft.grid.css" />
+    <Content Include="Content\assets\edesoft\css\edesoft.swal2.css" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.inputs.utils.mask.js" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.jquery.inputsearch.js" />
+    <Content Include="Content\assets\img\coming-soon\coming-soon-1.jpg" />
+    <Content Include="Content\assets\img\cover\cover-profile.jpg" />
+    <Content Include="Content\assets\img\cover\cover-scrum-board.png" />
+    <Content Include="Content\assets\img\flag\cn.jpg" />
+    <Content Include="Content\assets\img\flag\de.jpg" />
+    <Content Include="Content\assets\img\flag\fr.jpg" />
+    <Content Include="Content\assets\img\flag\jp.jpg" />
+    <Content Include="Content\assets\img\flag\us.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-1-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-1.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-10-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-10.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-11-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-11.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-12-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-12.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-13-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-13.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-14-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-14.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-15-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-15.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-16-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-16.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-17-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-17.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-18-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-18.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-19-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-19.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-2-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-2.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-20-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-20.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-21-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-21.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-22-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-22.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-23-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-23.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-24-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-24.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-25-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-25.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-26-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-26.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-27-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-27.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-28-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-28.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-29-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-29.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-3-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-3.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-30-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-30.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-31-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-31.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-32-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-32.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-33-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-33.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-34-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-34.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-35-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-35.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-36-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-36.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-37-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-37.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-38-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-38.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-39-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-39.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-4-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-4.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-40-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-40.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-41-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-41.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-42-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-42.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-43-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-43.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-44-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-44.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-45-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-45.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-46-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-46.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-47-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-47.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-48-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-48.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-49-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-49.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-5-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-5.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-50-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-50.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-51-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-51.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-52-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-52.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-53-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-53.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-54-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-54.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-55-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-55.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-56-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-56.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-57-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-57.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-58-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-58.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-59-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-59.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-6-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-6.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-60-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-60.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-61-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-61.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-62-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-62.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-63-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-63.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-64-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-64.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-65-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-65.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-66-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-66.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-67-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-67.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-68-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-68.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-69-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-69.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-7-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-7.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-70-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-70.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-8-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-8.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-9-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-9.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-1.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-10.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-11-thumb.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-11.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-2.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-3.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-4.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-5.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-6.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-7.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-8.jpg" />
+    <Content Include="Content\assets\img\gallery\gallery-portrait-9.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-1-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-1.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-10-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-10.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-11-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-11.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-12-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-12.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-13-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-13.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-14-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-14.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-15.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-16-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-16.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-17-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-17.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-18-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-18.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-2-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-2.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-3-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-3.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-4-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-4.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-5-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-5.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-6-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-6.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-7-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-7.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-8-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-8.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-9-thumb.jpg" />
+    <Content Include="Content\assets\img\login-bg\login-bg-9.jpg" />
+    <Content Include="Content\assets\img\logo\logo-admin-apple.png" />
+    <Content Include="Content\assets\img\logo\logo-admin-facebook.png" />
+    <Content Include="Content\assets\img\logo\logo-admin-google.png" />
+    <Content Include="Content\assets\img\logo\logo-admin-transparent.png" />
+    <Content Include="Content\assets\img\logo\logo-admin.png" />
+    <Content Include="Content\assets\img\logo\logo-bs4.png" />
+    <Content Include="Content\assets\img\logo\logo-bs5.png" />
+    <Content Include="Content\assets\img\pos\icon-table-black.svg" />
+    <Content Include="Content\assets\img\pos\icon-table.svg" />
+    <Content Include="Content\assets\img\pos\logo-white.svg" />
+    <Content Include="Content\assets\img\pos\logo.svg" />
+    <Content Include="Content\assets\img\pos\product-1.jpg" />
+    <Content Include="Content\assets\img\pos\product-10.jpg" />
+    <Content Include="Content\assets\img\pos\product-11.jpg" />
+    <Content Include="Content\assets\img\pos\product-12.jpg" />
+    <Content Include="Content\assets\img\pos\product-13.jpg" />
+    <Content Include="Content\assets\img\pos\product-14.jpg" />
+    <Content Include="Content\assets\img\pos\product-15.jpg" />
+    <Content Include="Content\assets\img\pos\product-16.jpg" />
+    <Content Include="Content\assets\img\pos\product-17.jpg" />
+    <Content Include="Content\assets\img\pos\product-2.jpg" />
+    <Content Include="Content\assets\img\pos\product-3.jpg" />
+    <Content Include="Content\assets\img\pos\product-4.jpg" />
+    <Content Include="Content\assets\img\pos\product-5.jpg" />
+    <Content Include="Content\assets\img\pos\product-6.jpg" />
+    <Content Include="Content\assets\img\pos\product-7.jpg" />
+    <Content Include="Content\assets\img\pos\product-8.jpg" />
+    <Content Include="Content\assets\img\pos\product-9.jpg" />
+    <Content Include="Content\assets\img\product\product-1.jpg" />
+    <Content Include="Content\assets\img\product\product-1.png" />
+    <Content Include="Content\assets\img\product\product-10.jpg" />
+    <Content Include="Content\assets\img\product\product-11.jpg" />
+    <Content Include="Content\assets\img\product\product-12.jpg" />
+    <Content Include="Content\assets\img\product\product-13.jpg" />
+    <Content Include="Content\assets\img\product\product-14.jpg" />
+    <Content Include="Content\assets\img\product\product-15.jpg" />
+    <Content Include="Content\assets\img\product\product-2.jpg" />
+    <Content Include="Content\assets\img\product\product-2.png" />
+    <Content Include="Content\assets\img\product\product-3.jpg" />
+    <Content Include="Content\assets\img\product\product-3.png" />
+    <Content Include="Content\assets\img\product\product-4.jpg" />
+    <Content Include="Content\assets\img\product\product-4.png" />
+    <Content Include="Content\assets\img\product\product-5.jpg" />
+    <Content Include="Content\assets\img\product\product-5.png" />
+    <Content Include="Content\assets\img\product\product-6.jpg" />
+    <Content Include="Content\assets\img\product\product-6.png" />
+    <Content Include="Content\assets\img\product\product-7.jpg" />
+    <Content Include="Content\assets\img\product\product-7.png" />
+    <Content Include="Content\assets\img\product\product-8.jpg" />
+    <Content Include="Content\assets\img\product\product-9.jpg" />
+    <Content Include="Content\assets\img\product\product-preview-ipad.png" />
+    <Content Include="Content\assets\img\product\product-preview-iphone.png" />
+    <Content Include="Content\assets\img\product\product-preview-macbook.png" />
+    <Content Include="Content\assets\img\product\product-preview-sm.jpg" />
+    <Content Include="Content\assets\img\product\product-preview.jpg" />
+    <Content Include="Content\assets\img\svg\img-1.svg" />
+    <Content Include="Content\assets\img\svg\img-2.svg" />
+    <Content Include="Content\assets\img\svg\img-3.svg" />
+    <Content Include="Content\assets\img\svg\img-4.svg" />
+    <Content Include="Content\assets\img\theme\apple.jpg" />
+    <Content Include="Content\assets\img\theme\blog.jpg" />
+    <Content Include="Content\assets\img\theme\corporate.jpg" />
+    <Content Include="Content\assets\img\theme\default.jpg" />
+    <Content Include="Content\assets\img\theme\e-commerce.jpg" />
+    <Content Include="Content\assets\img\theme\facebook.jpg" />
+    <Content Include="Content\assets\img\theme\forum.jpg" />
+    <Content Include="Content\assets\img\theme\google.jpg" />
+    <Content Include="Content\assets\img\theme\material.jpg" />
+    <Content Include="Content\assets\img\theme\one-page-parallax.jpg" />
+    <Content Include="Content\assets\img\theme\transparent.jpg" />
+    <Content Include="Content\assets\img\transparent\black-0.1.png" />
+    <Content Include="Content\assets\img\transparent\black-0.2.png" />
+    <Content Include="Content\assets\img\transparent\black-0.3.png" />
+    <Content Include="Content\assets\img\transparent\black-0.4.png" />
+    <Content Include="Content\assets\img\transparent\black-0.5.png" />
+    <Content Include="Content\assets\img\transparent\black-0.6.png" />
+    <Content Include="Content\assets\img\transparent\black-0.7.png" />
+    <Content Include="Content\assets\img\transparent\black-0.8.png" />
+    <Content Include="Content\assets\img\transparent\black-0.9.png" />
+    <Content Include="Content\assets\img\transparent\white-0.1.png" />
+    <Content Include="Content\assets\img\transparent\white-0.2.png" />
+    <Content Include="Content\assets\img\transparent\white-0.3.png" />
+    <Content Include="Content\assets\img\transparent\white-0.4.png" />
+    <Content Include="Content\assets\img\transparent\white-0.5.png" />
+    <Content Include="Content\assets\img\transparent\white-0.6.png" />
+    <Content Include="Content\assets\img\transparent\white-0.7.png" />
+    <Content Include="Content\assets\img\transparent\white-0.8.png" />
+    <Content Include="Content\assets\img\transparent\white-0.9.png" />
+    <Content Include="Content\assets\img\transparent\white-0.98.png" />
+    <Content Include="Content\assets\img\user\user-1.jpg" />
+    <Content Include="Content\assets\img\user\user-10.jpg" />
+    <Content Include="Content\assets\img\user\user-11.jpg" />
+    <Content Include="Content\assets\img\user\user-12.jpg" />
+    <Content Include="Content\assets\img\user\user-13.jpg" />
+    <Content Include="Content\assets\img\user\user-14.jpg" />
+    <Content Include="Content\assets\img\user\user-2.jpg" />
+    <Content Include="Content\assets\img\user\user-3.jpg" />
+    <Content Include="Content\assets\img\user\user-4.jpg" />
+    <Content Include="Content\assets\img\user\user-5.jpg" />
+    <Content Include="Content\assets\img\user\user-6.jpg" />
+    <Content Include="Content\assets\img\user\user-7.jpg" />
+    <Content Include="Content\assets\img\user\user-8.jpg" />
+    <Content Include="Content\assets\img\user\user-9.jpg" />
+    <Content Include="Content\assets\img\Valuin\icone_ajuda.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_analise_detalhada.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_buscar_ativos.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_comparativo_valuation.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_inicio.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_instagram.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_linkedin.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_minha_carteira %281%29.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_minha_carteira.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_sobre_plataforma.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_suporte.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_twitter.svg" />
+    <Content Include="Content\assets\img\Valuin\icone_youtube.svg" />
+    <Content Include="Content\assets\img\Valuin\imagem_menu.jpeg" />
+    <Content Include="Content\assets\img\Valuin\logo_valuin_desktop.svg" />
+    <Content Include="Content\assets\img\Valuin\simbolo_valuin_home.svg" />
+    <Content Include="Content\assets\img\version\ajax.jpg" />
+    <Content Include="Content\assets\img\version\angular10x.jpg" />
+    <Content Include="Content\assets\img\version\angular1x.jpg" />
+    <Content Include="Content\assets\img\version\angular8x.jpg" />
+    <Content Include="Content\assets\img\version\dotnet.jpg" />
+    <Content Include="Content\assets\img\version\html.jpg" />
+    <Content Include="Content\assets\img\version\laravel.jpg" />
+    <Content Include="Content\assets\img\version\reactjs.jpg" />
+    <Content Include="Content\assets\img\version\vuejs.jpg" />
+    <Content Include="Content\assets\js\app.min.js" />
+    <Content Include="Content\assets\js\vendor.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\CLDR\cldr.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\CLDR\event.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\CLDR\pt.js" />
+    <Content Include="Content\assets\plugins\Devexpress\CLDR\supplemental.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\CLDR\unresolved.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\css\dx.dark.css" />
+    <Content Include="Content\assets\plugins\Devexpress\css\dx.light.css" />
+    <Content Include="Content\assets\plugins\Devexpress\css\dx.softblue.css" />
+    <Content Include="Content\assets\plugins\Devexpress\js\dx.all.js" />
+    <Content Include="Content\assets\plugins\Devexpress\js\exceljs.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\js\FileSaver.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\js\jspdf.umd.min.js" />
+    <Content Include="Content\assets\plugins\Devexpress\js\polyfill.min.js" />
+    <Content Include="Content\assets\plugins\Globalize\currency.min.js" />
+    <Content Include="Content\assets\plugins\Globalize\date.min.js" />
+    <Content Include="Content\assets\plugins\Globalize\globalize.min.js" />
+    <Content Include="Content\assets\plugins\Globalize\message.min.js" />
+    <Content Include="Content\assets\plugins\Globalize\number.min.js" />
+    <Content Include="Content\assets\plugins\jQuery-Mask-Plugin\dist\jquery.mask.js" />
+    <Content Include="Content\assets\plugins\jQuery-Mask-Plugin\dist\jquery.mask.min.js" />
+    <Content Include="Content\assets\plugins\lodash\lodash.min.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\af.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ar-dz.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ar-kw.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ar-ly.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ar-ma.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ar-sa.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ar-tn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ar.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\az.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\be.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\bg.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\bm.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\bn-bd.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\bn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\bo.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\br.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\bs.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ca.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\cs.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\cv.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\cy.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\da.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\de-at.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\de-ch.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\de.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\dv.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\el.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-au.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-ca.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-gb.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-ie.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-il.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-in.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-nz.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\en-sg.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\eo.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\es-do.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\es-mx.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\es-us.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\es.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\et.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\eu.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fa.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fi.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fil.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fo.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fr-ca.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fr-ch.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fr.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\fy.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ga.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\gd.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\gl.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\gom-deva.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\gom-latn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\gu.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\he.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\hi.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\hr.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\hu.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\hy-am.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\id.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\is.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\it-ch.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\it.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ja.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\jv.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ka.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\kk.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\km.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\kn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ko.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ku.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ky.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\lb.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\lo.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\lt.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\lv.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\me.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\mi.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\mk.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ml.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\mn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\mr.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ms-my.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ms.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\mt.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\my.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\nb.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ne.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\nl-be.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\nl.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\nn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\oc-lnc.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\pa-in.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\pl.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\pt-br.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\pt.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ro.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ru.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sd.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\se.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\si.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sk.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sl.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sq.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sr-cyrl.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sr.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ss.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sv.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\sw.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ta.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\te.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tet.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tg.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\th.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tk.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tl-ph.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tlh.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tr.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tzl.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tzm-latn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\tzm.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ug-cn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\uk.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\ur.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\uz-latn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\uz.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\vi.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\x-pseudo.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\yo.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\zh-cn.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\zh-hk.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\zh-mo.js" />
+    <Content Include="Content\assets\plugins\moment\dist\locale\zh-tw.js" />
+    <Content Include="Content\assets\plugins\moment\dist\moment.js" />
+    <Content Include="Content\assets\plugins\moment\ender.js" />
+    <Content Include="Content\assets\plugins\moment\locale\af.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ar-dz.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ar-kw.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ar-ly.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ar-ma.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ar-sa.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ar-tn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ar.js" />
+    <Content Include="Content\assets\plugins\moment\locale\az.js" />
+    <Content Include="Content\assets\plugins\moment\locale\be.js" />
+    <Content Include="Content\assets\plugins\moment\locale\bg.js" />
+    <Content Include="Content\assets\plugins\moment\locale\bm.js" />
+    <Content Include="Content\assets\plugins\moment\locale\bn-bd.js" />
+    <Content Include="Content\assets\plugins\moment\locale\bn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\bo.js" />
+    <Content Include="Content\assets\plugins\moment\locale\br.js" />
+    <Content Include="Content\assets\plugins\moment\locale\bs.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ca.js" />
+    <Content Include="Content\assets\plugins\moment\locale\cs.js" />
+    <Content Include="Content\assets\plugins\moment\locale\cv.js" />
+    <Content Include="Content\assets\plugins\moment\locale\cy.js" />
+    <Content Include="Content\assets\plugins\moment\locale\da.js" />
+    <Content Include="Content\assets\plugins\moment\locale\de-at.js" />
+    <Content Include="Content\assets\plugins\moment\locale\de-ch.js" />
+    <Content Include="Content\assets\plugins\moment\locale\de.js" />
+    <Content Include="Content\assets\plugins\moment\locale\dv.js" />
+    <Content Include="Content\assets\plugins\moment\locale\el.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-au.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-ca.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-gb.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-ie.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-il.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-in.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-nz.js" />
+    <Content Include="Content\assets\plugins\moment\locale\en-sg.js" />
+    <Content Include="Content\assets\plugins\moment\locale\eo.js" />
+    <Content Include="Content\assets\plugins\moment\locale\es-do.js" />
+    <Content Include="Content\assets\plugins\moment\locale\es-mx.js" />
+    <Content Include="Content\assets\plugins\moment\locale\es-us.js" />
+    <Content Include="Content\assets\plugins\moment\locale\es.js" />
+    <Content Include="Content\assets\plugins\moment\locale\et.js" />
+    <Content Include="Content\assets\plugins\moment\locale\eu.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fa.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fi.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fil.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fo.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fr-ca.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fr-ch.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fr.js" />
+    <Content Include="Content\assets\plugins\moment\locale\fy.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ga.js" />
+    <Content Include="Content\assets\plugins\moment\locale\gd.js" />
+    <Content Include="Content\assets\plugins\moment\locale\gl.js" />
+    <Content Include="Content\assets\plugins\moment\locale\gom-deva.js" />
+    <Content Include="Content\assets\plugins\moment\locale\gom-latn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\gu.js" />
+    <Content Include="Content\assets\plugins\moment\locale\he.js" />
+    <Content Include="Content\assets\plugins\moment\locale\hi.js" />
+    <Content Include="Content\assets\plugins\moment\locale\hr.js" />
+    <Content Include="Content\assets\plugins\moment\locale\hu.js" />
+    <Content Include="Content\assets\plugins\moment\locale\hy-am.js" />
+    <Content Include="Content\assets\plugins\moment\locale\id.js" />
+    <Content Include="Content\assets\plugins\moment\locale\is.js" />
+    <Content Include="Content\assets\plugins\moment\locale\it-ch.js" />
+    <Content Include="Content\assets\plugins\moment\locale\it.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ja.js" />
+    <Content Include="Content\assets\plugins\moment\locale\jv.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ka.js" />
+    <Content Include="Content\assets\plugins\moment\locale\kk.js" />
+    <Content Include="Content\assets\plugins\moment\locale\km.js" />
+    <Content Include="Content\assets\plugins\moment\locale\kn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ko.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ku.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ky.js" />
+    <Content Include="Content\assets\plugins\moment\locale\lb.js" />
+    <Content Include="Content\assets\plugins\moment\locale\lo.js" />
+    <Content Include="Content\assets\plugins\moment\locale\lt.js" />
+    <Content Include="Content\assets\plugins\moment\locale\lv.js" />
+    <Content Include="Content\assets\plugins\moment\locale\me.js" />
+    <Content Include="Content\assets\plugins\moment\locale\mi.js" />
+    <Content Include="Content\assets\plugins\moment\locale\mk.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ml.js" />
+    <Content Include="Content\assets\plugins\moment\locale\mn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\mr.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ms-my.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ms.js" />
+    <Content Include="Content\assets\plugins\moment\locale\mt.js" />
+    <Content Include="Content\assets\plugins\moment\locale\my.js" />
+    <Content Include="Content\assets\plugins\moment\locale\nb.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ne.js" />
+    <Content Include="Content\assets\plugins\moment\locale\nl-be.js" />
+    <Content Include="Content\assets\plugins\moment\locale\nl.js" />
+    <Content Include="Content\assets\plugins\moment\locale\nn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\oc-lnc.js" />
+    <Content Include="Content\assets\plugins\moment\locale\pa-in.js" />
+    <Content Include="Content\assets\plugins\moment\locale\pl.js" />
+    <Content Include="Content\assets\plugins\moment\locale\pt-br.js" />
+    <Content Include="Content\assets\plugins\moment\locale\pt.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ro.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ru.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sd.js" />
+    <Content Include="Content\assets\plugins\moment\locale\se.js" />
+    <Content Include="Content\assets\plugins\moment\locale\si.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sk.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sl.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sq.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sr-cyrl.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sr.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ss.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sv.js" />
+    <Content Include="Content\assets\plugins\moment\locale\sw.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ta.js" />
+    <Content Include="Content\assets\plugins\moment\locale\te.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tet.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tg.js" />
+    <Content Include="Content\assets\plugins\moment\locale\th.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tk.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tl-ph.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tlh.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tr.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tzl.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tzm-latn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\tzm.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ug-cn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\uk.js" />
+    <Content Include="Content\assets\plugins\moment\locale\ur.js" />
+    <Content Include="Content\assets\plugins\moment\locale\uz-latn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\uz.js" />
+    <Content Include="Content\assets\plugins\moment\locale\vi.js" />
+    <Content Include="Content\assets\plugins\moment\locale\x-pseudo.js" />
+    <Content Include="Content\assets\plugins\moment\locale\yo.js" />
+    <Content Include="Content\assets\plugins\moment\locale\zh-cn.js" />
+    <Content Include="Content\assets\plugins\moment\locale\zh-hk.js" />
+    <Content Include="Content\assets\plugins\moment\locale\zh-mo.js" />
+    <Content Include="Content\assets\plugins\moment\locale\zh-tw.js" />
+    <Content Include="Content\assets\plugins\moment\min\locales.js" />
+    <Content Include="Content\assets\plugins\moment\min\locales.min.js" />
+    <Content Include="Content\assets\plugins\moment\min\moment-with-locales.js" />
+    <Content Include="Content\assets\plugins\moment\min\moment-with-locales.min.js" />
+    <Content Include="Content\assets\plugins\moment\min\moment.min.js" />
+    <Content Include="Content\assets\plugins\moment\moment.js" />
+    <Content Include="Content\assets\plugins\moment\package.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\check-overflow.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\date-from-array.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\from-anything.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\from-array.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\from-object.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\from-string-and-array.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\from-string-and-format.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\from-string.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\local.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\parsing-flags.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\utc.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\create\valid.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\abs.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\add-subtract.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\as.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\bubble.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\clone.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\constructor.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\create.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\duration.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\get.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\humanize.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\iso-string.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\prototype.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\duration\valid.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\format\format.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\base-config.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\calendar.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\constructor.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\en.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\formats.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\invalid.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\lists.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\locale.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\locales.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\ordinal.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\pre-post-format.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\prototype.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\relative.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\locale\set.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\add-subtract.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\calendar.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\clone.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\compare.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\constructor.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\creation-data.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\diff.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\format.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\from.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\get-set.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\locale.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\min-max.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\moment.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\now.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\prototype.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\start-end-of.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\to-type.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\to.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\moment\valid.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\parse\regex.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\parse\token.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\aliases.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\constants.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\day-of-month.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\day-of-week.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\day-of-year.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\era.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\hour.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\millisecond.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\minute.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\month.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\offset.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\priorities.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\quarter.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\second.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\timestamp.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\timezone.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\units.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\week-calendar-utils.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\week-year.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\week.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\units\year.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\abs-ceil.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\abs-floor.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\abs-round.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\compare-arrays.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\defaults.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\deprecate.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\extend.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\has-own-prop.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\hooks.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\index-of.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-array.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-calendar-spec.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-date.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-function.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-leap-year.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-moment-input.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-number.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-object-empty.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-object.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-string.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\is-undefined.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\keys.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\map.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\mod.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\some.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\to-int.js" />
+    <Content Include="Content\assets\plugins\moment\src\lib\utils\zero-fill.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\af.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ar-dz.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ar-kw.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ar-ly.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ar-ma.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ar-sa.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ar-tn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ar.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\az.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\be.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\bg.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\bm.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\bn-bd.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\bn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\bo.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\br.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\bs.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ca.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\cs.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\cv.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\cy.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\da.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\de-at.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\de-ch.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\de.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\dv.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\el.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-au.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-ca.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-gb.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-ie.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-il.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-in.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-nz.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\en-sg.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\eo.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\es-do.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\es-mx.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\es-us.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\es.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\et.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\eu.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fa.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fi.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fil.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fo.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fr-ca.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fr-ch.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fr.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\fy.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ga.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\gd.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\gl.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\gom-deva.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\gom-latn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\gu.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\he.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\hi.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\hr.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\hu.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\hy-am.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\id.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\is.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\it-ch.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\it.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ja.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\jv.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ka.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\kk.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\km.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\kn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ko.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ku.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ky.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\lb.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\lo.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\lt.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\lv.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\me.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\mi.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\mk.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ml.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\mn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\mr.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ms-my.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ms.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\mt.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\my.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\nb.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ne.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\nl-be.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\nl.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\nn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\oc-lnc.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\pa-in.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\pl.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\pt-br.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\pt.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ro.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ru.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sd.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\se.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\si.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sk.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sl.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sq.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sr-cyrl.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sr.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ss.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sv.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\sw.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ta.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\te.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tet.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tg.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\th.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tk.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tl-ph.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tlh.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tr.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tzl.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tzm-latn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\tzm.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ug-cn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\uk.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\ur.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\uz-latn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\uz.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\vi.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\x-pseudo.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\yo.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\zh-cn.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\zh-hk.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\zh-mo.js" />
+    <Content Include="Content\assets\plugins\moment\src\locale\zh-tw.js" />
+    <Content Include="Content\assets\plugins\moment\src\moment.js" />
+    <Content Include="Content\assets\plugins\parsley\parsley.min.js" />
+    <Content Include="Content\assets\plugins\parsley\parsley.pt-br.js" />
+    <Content Include="Content\assets\plugins\select2\dist\css\select2.css" />
+    <Content Include="Content\assets\plugins\select2\dist\css\select2.min.css" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\af.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ar.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\az.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\bg.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\bn.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\bs.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\build.txt" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ca.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\cs.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\da.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\de.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\dsb.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\el.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\en.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\es.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\et.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\eu.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\fa.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\fi.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\fr.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\gl.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\he.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\hi.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\hr.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\hsb.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\hu.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\hy.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\id.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\is.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\it.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ja.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ka.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\km.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ko.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\lt.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\lv.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\mk.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ms.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\nb.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ne.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\nl.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\pl.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ps.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\pt-BR.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\pt.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ro.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\ru.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\sk.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\sl.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\sq.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\sr-Cyrl.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\sr.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\sv.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\th.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\tk.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\tr.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\uk.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\vi.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\zh-CN.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\i18n\zh-TW.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\select2.full.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\select2.full.min.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\select2.js" />
+    <Content Include="Content\assets\plugins\select2\dist\js\select2.min.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\banner.end.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\banner.start.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\jquery.mousewheel.shim.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\jquery.select2.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\jquery.shim.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\compat\containerCss.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\compat\dropdownCss.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\compat\initSelection.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\compat\inputData.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\compat\matcher.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\compat\query.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\compat\utils.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\core.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\ajax.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\array.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\base.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\maximumInputLength.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\maximumSelectionLength.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\minimumInputLength.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\select.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\tags.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\data\tokenizer.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\defaults.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\diacritics.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\attachBody.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\attachContainer.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\closeOnSelect.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\hidePlaceholder.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\infiniteScroll.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\minimumResultsForSearch.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\search.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\selectOnClose.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\dropdown\stopPropagation.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\af.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ar.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\az.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\bg.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\bn.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\bs.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ca.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\cs.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\da.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\de.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\dsb.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\el.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\en.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\es.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\et.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\eu.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\fa.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\fi.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\fr.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\gl.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\he.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\hi.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\hr.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\hsb.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\hu.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\hy.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\id.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\is.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\it.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ja.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ka.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\km.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ko.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\lt.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\lv.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\mk.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ms.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\nb.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ne.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\nl.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\pl.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ps.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\pt-BR.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\pt.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ro.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\ru.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\sk.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\sl.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\sq.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\sr-Cyrl.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\sr.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\sv.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\th.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\tk.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\tr.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\uk.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\vi.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\zh-CN.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\i18n\zh-TW.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\keys.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\options.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\results.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\allowClear.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\base.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\clickMask.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\eventRelay.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\multiple.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\placeholder.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\search.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\single.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\selection\stopPropagation.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\translation.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\select2\utils.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\wrapper.end.js" />
+    <Content Include="Content\assets\plugins\select2\src\js\wrapper.start.js" />
+    <Content Include="Content\assets\plugins\sweetalert2\sweetalert2.all.min.js" />
+    <Content Include="Content\assets\edesoft\css\edesoft.bootstrap.css" />
+    <Content Include="Content\assets\edesoft\css\edesoft.css" />
+    <Content Include="Content\css\layout.css" />
+    <Content Include="Content\images\users\default.png" />
+    <Content Include="Content\js\backoffice\ativos\index.js" />
+    <Content Include="Content\js\backoffice\cliente\index.js" />
+    <Content Include="Content\assets\edesoft\js\modules\Crud\helper.crud.grid.js" />
+    <Content Include="Content\assets\edesoft\js\modules\Crud\helper.crud.modal.js" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.functions.js" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.grid.js" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.jquery.js" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.loader.js" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.messages.js" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.panel.js" />
+    <Content Include="Content\assets\edesoft\js\modules\types\helper.constants.js" />
+    <Content Include="Content\assets\edesoft\js\modules\types\helper.inputs.js" />
+    <Content Include="Content\js\seguranca\usuario\index.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="ViewModel\Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\css\default\fonts\bootstrap-icons.woff" />
+    <Content Include="Content\assets\css\default\fonts\bootstrap-icons.woff2" />
+    <Content Include="Content\assets\css\fonts\bootstrap-icons.woff" />
+    <Content Include="Content\assets\css\fonts\bootstrap-icons.woff2" />
+    <Content Include="Content\assets\img\.DS_Store" />
+    <Content Include="Content\assets\img\svg\.DS_Store" />
+    <Content Include="Content\assets\img\theme\.DS_Store" />
+    <Content Include="Content\assets\img\version\.DS_Store" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\assets\webfonts\fa-duotone-900.ttf" />
+    <Content Include="Content\assets\webfonts\fa-duotone-900.woff2" />
+    <Content Include="Content\assets\webfonts\fa-light-300.ttf" />
+    <Content Include="Content\assets\webfonts\fa-light-300.woff2" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\assets\webfonts\fa-sharp-solid-900.woff2" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\assets\webfonts\fa-thin-100.ttf" />
+    <Content Include="Content\assets\webfonts\fa-thin-100.woff2" />
+    <Content Include="App_Code\EdesoftHelperPanel.cshtml" />
+    <Content Include="App_Code\EdesoftHelperButton.cshtml" />
+    <Content Include="App_Code\EdesoftHelperGrid.cshtml" />
+    <Content Include="Content\assets\edesoft\js\helper.edesoft.js" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxicons.eot" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxicons.ttf" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxicons.woff" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxicons.woff2" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxiconsios.eot" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxiconsios.ttf" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxiconsios.woff" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxiconsios.woff2" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxiconsmaterial.ttf" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxiconsmaterial.woff" />
+    <Content Include="Content\assets\plugins\Devexpress\css\Icons\dxiconsmaterial.woff2" />
+    <Content Include="App_Code\EdesoftHelperModal.cshtml" />
+    <Content Include="App_Code\EdesoftHelperTab.cshtml" />
+    <Content Include="Content\assets\edesoft\js\modules\helper.inputs.cep.js" />
+    <Content Include="Content\assets\plugins\moment\CHANGELOG.md" />
+    <Content Include="Content\assets\plugins\moment\LICENSE" />
+    <Content Include="Content\assets\plugins\moment\min\locales.min.js.map" />
+    <Content Include="Content\assets\plugins\moment\min\moment-with-locales.min.js.map" />
+    <Content Include="Content\assets\plugins\moment\min\moment.min.js.map" />
+    <Content Include="Content\assets\plugins\moment\package.json" />
+    <Content Include="Content\assets\plugins\moment\README.md" />
+    <Content Include="Content\assets\plugins\select2\CHANGELOG.md" />
+    <Content Include="Content\assets\plugins\select2\LICENSE.md" />
+    <Content Include="Content\assets\plugins\select2\package.json" />
+    <Content Include="Content\assets\plugins\select2\README.md" />
+    <Content Include="Content\assets\plugins\select2\src\scss\core.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\mixins\_gradients.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\theme\classic\layout.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\theme\classic\_defaults.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\theme\classic\_multiple.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\theme\classic\_single.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\theme\default\layout.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\theme\default\_multiple.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\theme\default\_single.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\_dropdown.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\_multiple.scss" />
+    <Content Include="Content\assets\plugins\select2\src\scss\_single.scss" />
+    <None Include="packages.config" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Shared\_head.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Shared\_pageloader.cshtml" />
+    <Content Include="Views\Shared\_script.cshtml" />
+    <Content Include="Views\Shared\_sidebar.cshtml" />
+    <Content Include="Views\Home\Default.cshtml" />
+    <Content Include="Views\Shared\_LayoutAjax.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Shared\_breadcrumb.cshtml" />
+    <Content Include="Views\EdesoftCommon\_defaultGridArea.cshtml" />
+    <Content Include="Views\Usuarios\_modal.cshtml" />
+    <Content Include="Views\ClienteBackoffice\_modal.cshtml" />
+    <Content Include="Views\ClienteBackoffice\Index.cshtml" />
+    <Content Include="Views\CEP\_default.cshtml" />
+    <Content Include="Views\AtivosBackoffice\_modal.cshtml" />
+    <Content Include="Views\AtivosBackoffice\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\02-Application\Edesoft.ERP.Application\Edesoft.ERP.Application.csproj">
+      <Project>{0c8a478b-f2de-4126-ad62-ff49099f4989}</Project>
+      <Name>Edesoft.ERP.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\02-Application\Edesoft.ERP.DTO\Edesoft.ERP.DTO.csproj">
+      <Project>{e7af89ba-2a7e-4c58-9da3-89aeb787157e}</Project>
+      <Name>Edesoft.ERP.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03-Domain\Edesoft.ERP.Domain\Edesoft.ERP.Domain.csproj">
+      <Project>{2305ebee-47b8-476f-be2a-86c442246938}</Project>
+      <Name>Edesoft.ERP.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\04-Infra\Edesoft.ERP.Infra.IoC\Edesoft.ERP.Infra.IoC.csproj">
+      <Project>{a0562ad9-669a-4a8e-a38c-572a653581c5}</Project>
+      <Name>Edesoft.ERP.Infra.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\04-Infra\Edesoft.ERP.Infra.Repositories\Edesoft.ERP.Infra.Repositories.csproj">
+      <Project>{01659654-bb89-49db-b3e4-4b7c82a2ec17}</Project>
+      <Name>Edesoft.ERP.Infra.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\05-Tools\Edesoft.ERP.Tools\Edesoft.ERP.Tools.csproj">
+      <Project>{b6ecf273-8315-44cf-a928-01751359dd08}</Project>
+      <Name>Edesoft.ERP.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\07-Shared\Edesoft.ERP.Shared\Edesoft.ERP.Shared.csproj">
+      <Project>{09c96c4c-6040-488c-8779-e8a3ae833eb8}</Project>
+      <Name>Edesoft.ERP.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\assets\plugins\moment\moment.d.ts" />
+    <TypeScriptCompile Include="Content\assets\plugins\moment\ts3.1-typings\moment.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55846</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55846/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

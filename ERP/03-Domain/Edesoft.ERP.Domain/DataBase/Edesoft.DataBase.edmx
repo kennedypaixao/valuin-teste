@@ -1,0 +1,1326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Edesoft.DataBase.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ativos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SetorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubSetorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Logotipo" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contratante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCorporacao" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContratanteModules">
+          <Key>
+            <PropertyRef Name="IdContratante" />
+            <PropertyRef Name="IdModule" />
+          </Key>
+          <Property Name="IdContratante" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdModule" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Corporacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InternalRoleId" Type="float" Nullable="false" />
+          <Property Name="IdParentModule" Type="uniqueidentifier" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Icon" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Slug" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrdMenu" Type="float" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdContratante" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PerfisRoles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdPerfil" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdRole" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CanPost" Type="bit" Nullable="false" />
+          <Property Name="CanPut" Type="bit" Nullable="false" />
+          <Property Name="CanDelete" Type="bit" Nullable="false" />
+          <Property Name="CanGet" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="InternalRoleId" Type="float" Nullable="false" />
+          <Property Name="IdParentRole" Type="uniqueidentifier" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Icon" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Slug" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hash" Type="varchar" MaxLength="50" />
+          <Property Name="OrdMenu" Type="float" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleModules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdModule" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdRole" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Setores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubSetores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SetorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioCliente">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdCliente" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsuarioPerfis">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdPerfil" />
+          </Key>
+          <Property Name="IdUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPerfil" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdContratante" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CEP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NrCep" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="IdCidade" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Logradouro" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Bairro" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CodigoIBGE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cidade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdUF" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoIBGE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoIBGE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UF">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdPais" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Sigla" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoIBGE" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AtivosSetor">
+          <End Role="Setores" Type="Self.Setores" Multiplicity="1" />
+          <End Role="Ativos" Type="Self.Ativos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ativos">
+              <PropertyRef Name="SetorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtivosSubSetor">
+          <End Role="SubSetores" Type="Self.SubSetores" Multiplicity="1" />
+          <End Role="Ativos" Type="Self.Ativos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubSetores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ativos">
+              <PropertyRef Name="SubSetorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CEP_Cidade">
+          <End Role="Cidade" Type="Self.Cidade" Multiplicity="1" />
+          <End Role="CEP" Type="Self.CEP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CEP">
+              <PropertyRef Name="IdCidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cidade_UF">
+          <End Role="UF" Type="Self.UF" Multiplicity="1" />
+          <End Role="Cidade" Type="Self.Cidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cidade">
+              <PropertyRef Name="IdUF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cliente_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contratante_Corporacao">
+          <End Role="Corporacao" Type="Self.Corporacao" Multiplicity="1" />
+          <End Role="Contratante" Type="Self.Contratante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corporacao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratante">
+              <PropertyRef Name="IdCorporacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContratanteModules_Contratante">
+          <End Role="Contratante" Type="Self.Contratante" Multiplicity="1" />
+          <End Role="ContratanteModules" Type="Self.ContratanteModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContratanteModules">
+              <PropertyRef Name="IdContratante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContratanteModules_Modules">
+          <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
+          <End Role="ContratanteModules" Type="Self.ContratanteModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContratanteModules">
+              <PropertyRef Name="IdModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuSideBar_MenuSideBar">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role1" Type="Self.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Role1">
+              <PropertyRef Name="IdParentRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloSistema_ModuloSistema">
+          <End Role="Modules" Type="Self.Modules" Multiplicity="0..1" />
+          <End Role="Modules1" Type="Self.Modules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules1">
+              <PropertyRef Name="IdParentModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloSistemaMenuSideBar_MenuSideBar1">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleModules" Type="Self.RoleModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleModules">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloSistemaMenuSideBar_ModuloSistema">
+          <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
+          <End Role="RoleModules" Type="Self.RoleModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleModules">
+              <PropertyRef Name="IdModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Perfis_Contratante">
+          <End Role="Contratante" Type="Self.Contratante" Multiplicity="1" />
+          <End Role="Perfis" Type="Self.Perfis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Perfis">
+              <PropertyRef Name="IdContratante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfisRoles_Perfis">
+          <End Role="Perfis" Type="Self.Perfis" Multiplicity="1" />
+          <End Role="PerfisRoles" Type="Self.PerfisRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PerfisRoles">
+              <PropertyRef Name="IdPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfisRoles_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="PerfisRoles" Type="Self.PerfisRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PerfisRoles">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubSetoresSetores">
+          <End Role="Setores" Type="Self.Setores" Multiplicity="1" />
+          <End Role="SubSetores" Type="Self.SubSetores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubSetores">
+              <PropertyRef Name="SetorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UF_Pais1">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="UF" Type="Self.UF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UF">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioCliente_Cliente">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="UsuarioCliente" Type="Self.UsuarioCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioCliente">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioCliente_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="UsuarioCliente" Type="Self.UsuarioCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioCliente">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioPerfis_Perfis">
+          <End Role="Perfis" Type="Self.Perfis" Multiplicity="1" />
+          <End Role="UsuarioPerfis" Type="Self.UsuarioPerfis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioPerfis">
+              <PropertyRef Name="IdPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsuarioPerfis_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="UsuarioPerfis" Type="Self.UsuarioPerfis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioPerfis">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Contratante">
+          <End Role="Contratante" Type="Self.Contratante" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdContratante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EdesoftDataBaseModelStoreContainer">
+          <EntitySet Name="Ativos" EntityType="Self.Ativos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contratante" EntityType="Self.Contratante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContratanteModules" EntityType="Self.ContratanteModules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Corporacao" EntityType="Self.Corporacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfis" EntityType="Self.Perfis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfisRoles" EntityType="Self.PerfisRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleModules" EntityType="Self.RoleModules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Setores" EntityType="Self.Setores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubSetores" EntityType="Self.SubSetores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioCliente" EntityType="Self.UsuarioCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioPerfis" EntityType="Self.UsuarioPerfis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CEP" EntityType="Self.CEP" Schema="endereco" store:Type="Tables" />
+          <EntitySet Name="Cidade" EntityType="Self.Cidade" Schema="endereco" store:Type="Tables" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" Schema="endereco" store:Type="Tables" />
+          <EntitySet Name="UF" EntityType="Self.UF" Schema="endereco" store:Type="Tables" />
+          <AssociationSet Name="FK_AtivosSetor" Association="Self.FK_AtivosSetor">
+            <End Role="Setores" EntitySet="Setores" />
+            <End Role="Ativos" EntitySet="Ativos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtivosSubSetor" Association="Self.FK_AtivosSubSetor">
+            <End Role="SubSetores" EntitySet="SubSetores" />
+            <End Role="Ativos" EntitySet="Ativos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CEP_Cidade" Association="Self.FK_CEP_Cidade">
+            <End Role="Cidade" EntitySet="Cidade" />
+            <End Role="CEP" EntitySet="CEP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cidade_UF" Association="Self.FK_Cidade_UF">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="Cidade" EntitySet="Cidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cliente_Usuarios" Association="Self.FK_Cliente_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contratante_Corporacao" Association="Self.FK_Contratante_Corporacao">
+            <End Role="Corporacao" EntitySet="Corporacao" />
+            <End Role="Contratante" EntitySet="Contratante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContratanteModules_Contratante" Association="Self.FK_ContratanteModules_Contratante">
+            <End Role="Contratante" EntitySet="Contratante" />
+            <End Role="ContratanteModules" EntitySet="ContratanteModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContratanteModules_Modules" Association="Self.FK_ContratanteModules_Modules">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="ContratanteModules" EntitySet="ContratanteModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuSideBar_MenuSideBar" Association="Self.FK_MenuSideBar_MenuSideBar">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Role1" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloSistema_ModuloSistema" Association="Self.FK_ModuloSistema_ModuloSistema">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="Modules1" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloSistemaMenuSideBar_MenuSideBar1" Association="Self.FK_ModuloSistemaMenuSideBar_MenuSideBar1">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleModules" EntitySet="RoleModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloSistemaMenuSideBar_ModuloSistema" Association="Self.FK_ModuloSistemaMenuSideBar_ModuloSistema">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="RoleModules" EntitySet="RoleModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Perfis_Contratante" Association="Self.FK_Perfis_Contratante">
+            <End Role="Contratante" EntitySet="Contratante" />
+            <End Role="Perfis" EntitySet="Perfis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfisRoles_Perfis" Association="Self.FK_PerfisRoles_Perfis">
+            <End Role="Perfis" EntitySet="Perfis" />
+            <End Role="PerfisRoles" EntitySet="PerfisRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfisRoles_Role" Association="Self.FK_PerfisRoles_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="PerfisRoles" EntitySet="PerfisRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubSetoresSetores" Association="Self.FK_SubSetoresSetores">
+            <End Role="Setores" EntitySet="Setores" />
+            <End Role="SubSetores" EntitySet="SubSetores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UF_Pais1" Association="Self.FK_UF_Pais1">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="UF" EntitySet="UF" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioCliente_Cliente" Association="Self.FK_UsuarioCliente_Cliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="UsuarioCliente" EntitySet="UsuarioCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioCliente_Usuarios" Association="Self.FK_UsuarioCliente_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="UsuarioCliente" EntitySet="UsuarioCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioPerfis_Perfis" Association="Self.FK_UsuarioPerfis_Perfis">
+            <End Role="Perfis" EntitySet="Perfis" />
+            <End Role="UsuarioPerfis" EntitySet="UsuarioPerfis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsuarioPerfis_Usuarios" Association="Self.FK_UsuarioPerfis_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="UsuarioPerfis" EntitySet="UsuarioPerfis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Contratante" Association="Self.FK_Usuarios_Contratante">
+            <End Role="Contratante" EntitySet="Contratante" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Edesoft.DataBase.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EdesoftDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ativos" EntityType="Edesoft.DataBase.Model.Ativos" />
+          <EntitySet Name="Clientes" EntityType="Edesoft.DataBase.Model.Clientes" />
+          <EntitySet Name="Contratante" EntityType="Edesoft.DataBase.Model.Contratante" />
+          <EntitySet Name="ContratanteModules" EntityType="Edesoft.DataBase.Model.ContratanteModules" />
+          <EntitySet Name="Corporacao" EntityType="Edesoft.DataBase.Model.Corporacao" />
+          <EntitySet Name="Modules" EntityType="Edesoft.DataBase.Model.Modules" />
+          <EntitySet Name="Perfis" EntityType="Edesoft.DataBase.Model.Perfis" />
+          <EntitySet Name="PerfisRoles" EntityType="Edesoft.DataBase.Model.PerfisRoles" />
+          <EntitySet Name="Role" EntityType="Edesoft.DataBase.Model.Role" />
+          <EntitySet Name="RoleModules" EntityType="Edesoft.DataBase.Model.RoleModules" />
+          <EntitySet Name="Setores" EntityType="Edesoft.DataBase.Model.Setores" />
+          <EntitySet Name="SubSetores" EntityType="Edesoft.DataBase.Model.SubSetores" />
+          <EntitySet Name="Usuarios" EntityType="Edesoft.DataBase.Model.Usuarios" />
+          <EntitySet Name="CEP" EntityType="Edesoft.DataBase.Model.CEP" />
+          <EntitySet Name="Cidade" EntityType="Edesoft.DataBase.Model.Cidade" />
+          <EntitySet Name="Pais" EntityType="Edesoft.DataBase.Model.Pais" />
+          <EntitySet Name="UF" EntityType="Edesoft.DataBase.Model.UF" />
+          <AssociationSet Name="FK_AtivosSetor" Association="Edesoft.DataBase.Model.FK_AtivosSetor">
+            <End Role="Setores" EntitySet="Setores" />
+            <End Role="Ativos" EntitySet="Ativos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtivosSubSetor" Association="Edesoft.DataBase.Model.FK_AtivosSubSetor">
+            <End Role="SubSetores" EntitySet="SubSetores" />
+            <End Role="Ativos" EntitySet="Ativos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cliente_Usuarios" Association="Edesoft.DataBase.Model.FK_Cliente_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contratante_Corporacao" Association="Edesoft.DataBase.Model.FK_Contratante_Corporacao">
+            <End Role="Corporacao" EntitySet="Corporacao" />
+            <End Role="Contratante" EntitySet="Contratante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContratanteModules_Contratante" Association="Edesoft.DataBase.Model.FK_ContratanteModules_Contratante">
+            <End Role="Contratante" EntitySet="Contratante" />
+            <End Role="ContratanteModules" EntitySet="ContratanteModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Perfis_Contratante" Association="Edesoft.DataBase.Model.FK_Perfis_Contratante">
+            <End Role="Contratante" EntitySet="Contratante" />
+            <End Role="Perfis" EntitySet="Perfis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Contratante" Association="Edesoft.DataBase.Model.FK_Usuarios_Contratante">
+            <End Role="Contratante" EntitySet="Contratante" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContratanteModules_Modules" Association="Edesoft.DataBase.Model.FK_ContratanteModules_Modules">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="ContratanteModules" EntitySet="ContratanteModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloSistema_ModuloSistema" Association="Edesoft.DataBase.Model.FK_ModuloSistema_ModuloSistema">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="Modules1" EntitySet="Modules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloSistemaMenuSideBar_ModuloSistema" Association="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_ModuloSistema">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="RoleModules" EntitySet="RoleModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfisRoles_Perfis" Association="Edesoft.DataBase.Model.FK_PerfisRoles_Perfis">
+            <End Role="Perfis" EntitySet="Perfis" />
+            <End Role="PerfisRoles" EntitySet="PerfisRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfisRoles_Role" Association="Edesoft.DataBase.Model.FK_PerfisRoles_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="PerfisRoles" EntitySet="PerfisRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuSideBar_MenuSideBar" Association="Edesoft.DataBase.Model.FK_MenuSideBar_MenuSideBar">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Role1" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ModuloSistemaMenuSideBar_MenuSideBar1" Association="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_MenuSideBar1">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleModules" EntitySet="RoleModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubSetoresSetores" Association="Edesoft.DataBase.Model.FK_SubSetoresSetores">
+            <End Role="Setores" EntitySet="Setores" />
+            <End Role="SubSetores" EntitySet="SubSetores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CEP_Cidade" Association="Edesoft.DataBase.Model.FK_CEP_Cidade">
+            <End Role="Cidade" EntitySet="Cidade" />
+            <End Role="CEP" EntitySet="CEP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cidade_UF" Association="Edesoft.DataBase.Model.FK_Cidade_UF">
+            <End Role="UF" EntitySet="UF" />
+            <End Role="Cidade" EntitySet="Cidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UF_Pais1" Association="Edesoft.DataBase.Model.FK_UF_Pais1">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="UF" EntitySet="UF" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioCliente" Association="Edesoft.DataBase.Model.UsuarioCliente">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioPerfis" Association="Edesoft.DataBase.Model.UsuarioPerfis">
+            <End Role="Perfis" EntitySet="Perfis" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Ativos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SetorId" Type="Guid" Nullable="false" />
+          <Property Name="SubSetorId" Type="Guid" Nullable="false" />
+          <Property Name="Logotipo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Setores" Relationship="Edesoft.DataBase.Model.FK_AtivosSetor" FromRole="Ativos" ToRole="Setores" />
+          <NavigationProperty Name="SubSetores" Relationship="Edesoft.DataBase.Model.FK_AtivosSubSetor" FromRole="Ativos" ToRole="SubSetores" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Edesoft.DataBase.Model.FK_Cliente_Usuarios" FromRole="Clientes" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios1" Relationship="Edesoft.DataBase.Model.UsuarioCliente" FromRole="Clientes" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Contratante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdCorporacao" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Corporacao" Relationship="Edesoft.DataBase.Model.FK_Contratante_Corporacao" FromRole="Contratante" ToRole="Corporacao" />
+          <NavigationProperty Name="ContratanteModules" Relationship="Edesoft.DataBase.Model.FK_ContratanteModules_Contratante" FromRole="Contratante" ToRole="ContratanteModules" />
+          <NavigationProperty Name="Perfis" Relationship="Edesoft.DataBase.Model.FK_Perfis_Contratante" FromRole="Contratante" ToRole="Perfis" />
+          <NavigationProperty Name="Usuarios" Relationship="Edesoft.DataBase.Model.FK_Usuarios_Contratante" FromRole="Contratante" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="ContratanteModules">
+          <Key>
+            <PropertyRef Name="IdContratante" />
+            <PropertyRef Name="IdModule" />
+          </Key>
+          <Property Name="IdContratante" Type="Guid" Nullable="false" />
+          <Property Name="IdModule" Type="Guid" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Contratante" Relationship="Edesoft.DataBase.Model.FK_ContratanteModules_Contratante" FromRole="ContratanteModules" ToRole="Contratante" />
+          <NavigationProperty Name="Modules" Relationship="Edesoft.DataBase.Model.FK_ContratanteModules_Modules" FromRole="ContratanteModules" ToRole="Modules" />
+        </EntityType>
+        <EntityType Name="Corporacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Contratante" Relationship="Edesoft.DataBase.Model.FK_Contratante_Corporacao" FromRole="Corporacao" ToRole="Contratante" />
+        </EntityType>
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="InternalRoleId" Type="Double" Nullable="false" />
+          <Property Name="IdParentModule" Type="Guid" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrdMenu" Type="Double" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ContratanteModules" Relationship="Edesoft.DataBase.Model.FK_ContratanteModules_Modules" FromRole="Modules" ToRole="ContratanteModules" />
+          <NavigationProperty Name="Modules1" Relationship="Edesoft.DataBase.Model.FK_ModuloSistema_ModuloSistema" FromRole="Modules" ToRole="Modules1" />
+          <NavigationProperty Name="Modules2" Relationship="Edesoft.DataBase.Model.FK_ModuloSistema_ModuloSistema" FromRole="Modules1" ToRole="Modules" />
+          <NavigationProperty Name="RoleModules" Relationship="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_ModuloSistema" FromRole="Modules" ToRole="RoleModules" />
+        </EntityType>
+        <EntityType Name="Perfis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdContratante" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Contratante" Relationship="Edesoft.DataBase.Model.FK_Perfis_Contratante" FromRole="Perfis" ToRole="Contratante" />
+          <NavigationProperty Name="PerfisRoles" Relationship="Edesoft.DataBase.Model.FK_PerfisRoles_Perfis" FromRole="Perfis" ToRole="PerfisRoles" />
+          <NavigationProperty Name="Usuarios" Relationship="Edesoft.DataBase.Model.UsuarioPerfis" FromRole="Perfis" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="PerfisRoles">
+          <Key>
+            <PropertyRef Name="IdPerfil" />
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdPerfil" Type="Guid" Nullable="false" />
+          <Property Name="IdRole" Type="Guid" Nullable="false" />
+          <Property Name="CanPost" Type="Boolean" Nullable="false" />
+          <Property Name="CanPut" Type="Boolean" Nullable="false" />
+          <Property Name="CanDelete" Type="Boolean" Nullable="false" />
+          <Property Name="CanGet" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Perfis" Relationship="Edesoft.DataBase.Model.FK_PerfisRoles_Perfis" FromRole="PerfisRoles" ToRole="Perfis" />
+          <NavigationProperty Name="Role" Relationship="Edesoft.DataBase.Model.FK_PerfisRoles_Role" FromRole="PerfisRoles" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="InternalRoleId" Type="Double" Nullable="false" />
+          <Property Name="IdParentRole" Type="Guid" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Slug" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrdMenu" Type="Double" Nullable="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PerfisRoles" Relationship="Edesoft.DataBase.Model.FK_PerfisRoles_Role" FromRole="Role" ToRole="PerfisRoles" />
+          <NavigationProperty Name="Role1" Relationship="Edesoft.DataBase.Model.FK_MenuSideBar_MenuSideBar" FromRole="Role" ToRole="Role1" />
+          <NavigationProperty Name="Role2" Relationship="Edesoft.DataBase.Model.FK_MenuSideBar_MenuSideBar" FromRole="Role1" ToRole="Role" />
+          <NavigationProperty Name="RoleModules" Relationship="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_MenuSideBar1" FromRole="Role" ToRole="RoleModules" />
+        </EntityType>
+        <EntityType Name="RoleModules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdModule" Type="Guid" Nullable="false" />
+          <Property Name="IdRole" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Modules" Relationship="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_ModuloSistema" FromRole="RoleModules" ToRole="Modules" />
+          <NavigationProperty Name="Role" Relationship="Edesoft.DataBase.Model.FK_ModuloSistemaMenuSideBar_MenuSideBar1" FromRole="RoleModules" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Setores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ativos" Relationship="Edesoft.DataBase.Model.FK_AtivosSetor" FromRole="Setores" ToRole="Ativos" />
+          <NavigationProperty Name="SubSetores" Relationship="Edesoft.DataBase.Model.FK_SubSetoresSetores" FromRole="Setores" ToRole="SubSetores" />
+        </EntityType>
+        <EntityType Name="SubSetores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SetorId" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ativos" Relationship="Edesoft.DataBase.Model.FK_AtivosSubSetor" FromRole="SubSetores" ToRole="Ativos" />
+          <NavigationProperty Name="Setores" Relationship="Edesoft.DataBase.Model.FK_SubSetoresSetores" FromRole="SubSetores" ToRole="Setores" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdContratante" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Clientes" Relationship="Edesoft.DataBase.Model.FK_Cliente_Usuarios" FromRole="Usuarios" ToRole="Clientes" />
+          <NavigationProperty Name="Contratante" Relationship="Edesoft.DataBase.Model.FK_Usuarios_Contratante" FromRole="Usuarios" ToRole="Contratante" />
+          <NavigationProperty Name="Clientes1" Relationship="Edesoft.DataBase.Model.UsuarioCliente" FromRole="Usuarios" ToRole="Clientes" />
+          <NavigationProperty Name="Perfis" Relationship="Edesoft.DataBase.Model.UsuarioPerfis" FromRole="Usuarios" ToRole="Perfis" />
+        </EntityType>
+        <EntityType Name="CEP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="NrCep" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="IdCidade" Type="Guid" Nullable="false" />
+          <Property Name="Logradouro" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Bairro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoIBGE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cidade" Relationship="Edesoft.DataBase.Model.FK_CEP_Cidade" FromRole="CEP" ToRole="Cidade" />
+        </EntityType>
+        <EntityType Name="Cidade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdUF" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoIBGE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CEP" Relationship="Edesoft.DataBase.Model.FK_CEP_Cidade" FromRole="Cidade" ToRole="CEP" />
+          <NavigationProperty Name="UF" Relationship="Edesoft.DataBase.Model.FK_Cidade_UF" FromRole="Cidade" ToRole="UF" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoIBGE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UF" Relationship="Edesoft.DataBase.Model.FK_UF_Pais1" FromRole="Pais" ToRole="UF" />
+        </EntityType>
+        <EntityType Name="UF">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IdPais" Type="Guid" Nullable="false" />
+          <Property Name="Sigla" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoIBGE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cidade" Relationship="Edesoft.DataBase.Model.FK_Cidade_UF" FromRole="UF" ToRole="Cidade" />
+          <NavigationProperty Name="Pais" Relationship="Edesoft.DataBase.Model.FK_UF_Pais1" FromRole="UF" ToRole="Pais" />
+        </EntityType>
+        <Association Name="FK_AtivosSetor">
+          <End Type="Edesoft.DataBase.Model.Setores" Role="Setores" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.Ativos" Role="Ativos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ativos">
+              <PropertyRef Name="SetorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtivosSubSetor">
+          <End Type="Edesoft.DataBase.Model.SubSetores" Role="SubSetores" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.Ativos" Role="Ativos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubSetores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ativos">
+              <PropertyRef Name="SubSetorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cliente_Usuarios">
+          <End Type="Edesoft.DataBase.Model.Usuarios" Role="Usuarios" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Edesoft.DataBase.Model.Clientes" Role="Clientes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contratante_Corporacao">
+          <End Type="Edesoft.DataBase.Model.Corporacao" Role="Corporacao" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.Contratante" Role="Contratante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Corporacao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contratante">
+              <PropertyRef Name="IdCorporacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContratanteModules_Contratante">
+          <End Type="Edesoft.DataBase.Model.Contratante" Role="Contratante" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.ContratanteModules" Role="ContratanteModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContratanteModules">
+              <PropertyRef Name="IdContratante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Perfis_Contratante">
+          <End Type="Edesoft.DataBase.Model.Contratante" Role="Contratante" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.Perfis" Role="Perfis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Perfis">
+              <PropertyRef Name="IdContratante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Contratante">
+          <End Type="Edesoft.DataBase.Model.Contratante" Role="Contratante" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contratante">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdContratante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContratanteModules_Modules">
+          <End Type="Edesoft.DataBase.Model.Modules" Role="Modules" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.ContratanteModules" Role="ContratanteModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContratanteModules">
+              <PropertyRef Name="IdModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloSistema_ModuloSistema">
+          <End Type="Edesoft.DataBase.Model.Modules" Role="Modules" Multiplicity="0..1" />
+          <End Type="Edesoft.DataBase.Model.Modules" Role="Modules1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modules1">
+              <PropertyRef Name="IdParentModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloSistemaMenuSideBar_ModuloSistema">
+          <End Type="Edesoft.DataBase.Model.Modules" Role="Modules" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.RoleModules" Role="RoleModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleModules">
+              <PropertyRef Name="IdModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfisRoles_Perfis">
+          <End Type="Edesoft.DataBase.Model.Perfis" Role="Perfis" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.PerfisRoles" Role="PerfisRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PerfisRoles">
+              <PropertyRef Name="IdPerfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfisRoles_Role">
+          <End Type="Edesoft.DataBase.Model.Role" Role="Role" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.PerfisRoles" Role="PerfisRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PerfisRoles">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuSideBar_MenuSideBar">
+          <End Type="Edesoft.DataBase.Model.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="Edesoft.DataBase.Model.Role" Role="Role1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Role1">
+              <PropertyRef Name="IdParentRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ModuloSistemaMenuSideBar_MenuSideBar1">
+          <End Type="Edesoft.DataBase.Model.Role" Role="Role" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.RoleModules" Role="RoleModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleModules">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubSetoresSetores">
+          <End Type="Edesoft.DataBase.Model.Setores" Role="Setores" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.SubSetores" Role="SubSetores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Setores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubSetores">
+              <PropertyRef Name="SetorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CEP_Cidade">
+          <End Type="Edesoft.DataBase.Model.Cidade" Role="Cidade" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.CEP" Role="CEP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cidade">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CEP">
+              <PropertyRef Name="IdCidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cidade_UF">
+          <End Type="Edesoft.DataBase.Model.UF" Role="UF" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.Cidade" Role="Cidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UF">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cidade">
+              <PropertyRef Name="IdUF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UF_Pais1">
+          <End Type="Edesoft.DataBase.Model.Pais" Role="Pais" Multiplicity="1" />
+          <End Type="Edesoft.DataBase.Model.UF" Role="UF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UF">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioCliente">
+          <End Type="Edesoft.DataBase.Model.Clientes" Role="Clientes" Multiplicity="*" />
+          <End Type="Edesoft.DataBase.Model.Usuarios" Role="Usuarios" Multiplicity="*" />
+        </Association>
+        <Association Name="UsuarioPerfis">
+          <End Type="Edesoft.DataBase.Model.Perfis" Role="Perfis" Multiplicity="*" />
+          <End Type="Edesoft.DataBase.Model.Usuarios" Role="Usuarios" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EdesoftDataBaseModelStoreContainer" CdmEntityContainer="EdesoftDataBaseEntities">
+          <EntitySetMapping Name="Ativos">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Ativos">
+              <MappingFragment StoreEntitySet="Ativos">
+                <ScalarProperty Name="Logotipo" ColumnName="Logotipo" />
+                <ScalarProperty Name="SubSetorId" ColumnName="SubSetorId" />
+                <ScalarProperty Name="SetorId" ColumnName="SetorId" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contratante">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Contratante">
+              <MappingFragment StoreEntitySet="Contratante">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdCorporacao" ColumnName="IdCorporacao" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContratanteModules">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.ContratanteModules">
+              <MappingFragment StoreEntitySet="ContratanteModules">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+                <ScalarProperty Name="IdContratante" ColumnName="IdContratante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Corporacao">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Corporacao">
+              <MappingFragment StoreEntitySet="Corporacao">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Modules">
+              <MappingFragment StoreEntitySet="Modules">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="OrdMenu" ColumnName="OrdMenu" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdParentModule" ColumnName="IdParentModule" />
+                <ScalarProperty Name="InternalRoleId" ColumnName="InternalRoleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfis">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Perfis">
+              <MappingFragment StoreEntitySet="Perfis">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdContratante" ColumnName="IdContratante" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfisRoles">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.PerfisRoles">
+              <MappingFragment StoreEntitySet="PerfisRoles">
+                <ScalarProperty Name="CanGet" ColumnName="CanGet" />
+                <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+                <ScalarProperty Name="CanPut" ColumnName="CanPut" />
+                <ScalarProperty Name="CanPost" ColumnName="CanPost" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="OrdMenu" ColumnName="OrdMenu" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdParentRole" ColumnName="IdParentRole" />
+                <ScalarProperty Name="InternalRoleId" ColumnName="InternalRoleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleModules">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.RoleModules">
+              <MappingFragment StoreEntitySet="RoleModules">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Setores">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Setores">
+              <MappingFragment StoreEntitySet="Setores">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubSetores">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.SubSetores">
+              <MappingFragment StoreEntitySet="SubSetores">
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="SetorId" ColumnName="SetorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdContratante" ColumnName="IdContratante" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CEP">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.CEP">
+              <MappingFragment StoreEntitySet="CEP">
+                <ScalarProperty Name="CodigoIBGE" ColumnName="CodigoIBGE" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+                <ScalarProperty Name="IdCidade" ColumnName="IdCidade" />
+                <ScalarProperty Name="NrCep" ColumnName="NrCep" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cidade">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Cidade">
+              <MappingFragment StoreEntitySet="Cidade">
+                <ScalarProperty Name="CodigoIBGE" ColumnName="CodigoIBGE" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IdUF" ColumnName="IdUF" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.Pais">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="CodigoIBGE" ColumnName="CodigoIBGE" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UF">
+            <EntityTypeMapping TypeName="Edesoft.DataBase.Model.UF">
+              <MappingFragment StoreEntitySet="UF">
+                <ScalarProperty Name="CodigoIBGE" ColumnName="CodigoIBGE" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Sigla" ColumnName="Sigla" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UsuarioCliente" TypeName="Edesoft.DataBase.Model.UsuarioCliente" StoreEntitySet="UsuarioCliente">
+            <EndProperty Name="Usuarios">
+              <ScalarProperty Name="Id" ColumnName="IdUsuario" />
+            </EndProperty>
+            <EndProperty Name="Clientes">
+              <ScalarProperty Name="Id" ColumnName="IdCliente" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="UsuarioPerfis" TypeName="Edesoft.DataBase.Model.UsuarioPerfis" StoreEntitySet="UsuarioPerfis">
+            <EndProperty Name="Usuarios">
+              <ScalarProperty Name="Id" ColumnName="IdUsuario" />
+            </EndProperty>
+            <EndProperty Name="Perfis">
+              <ScalarProperty Name="Id" ColumnName="IdPerfil" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,30 @@
+﻿@helper _body(string GridName)
+{
+    <div class="m-3 @GridName"></div>
+}
+
+@helper CreateGridArea(string GridName, bool ShowDefaultButtonsHeading = true)
+{
+
+    var setup = new Edesoft.ERP.MVC.MVC.Pages.Helpers.PanelHelper()
+    {
+        ShowDefaultButtonsHeading = ShowDefaultButtonsHeading,
+        HeadingText = "Dados",
+        Body = _body(GridName)
+    };
+
+    @EdesoftHelperPanel.CreatePanel(setup)
+}
+
+@helper CreateGridModalArea(string GridName, string HeadingText)
+{
+    var setup = new Edesoft.ERP.MVC.MVC.Pages.Helpers.PanelHelper()
+    {
+        ShowDefaultButtonsHeading = false,
+        HeadingText = HeadingText,
+        Body = _body(GridName),
+        Inverse = true
+    };
+
+    @EdesoftHelperPanel.CreatePanel(setup)
+}

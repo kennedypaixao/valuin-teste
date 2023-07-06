@@ -1,0 +1,56 @@
+﻿@using Edesoft.ERP.MVC.MVC.Pages.Helpers;
+
+@helper CreateBodyModalCrudAtivo()
+{
+    <form action="/" method="POST">
+        <input type="hidden" class="edt-id-ativo" />
+        <fieldset>
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <label class="form-label">Código do Ativo</label>
+                    <input class="form-control edt-codigo-ativo" required data-parsley-trigger="change" />
+                </div>
+                <div class="col-lg-8 mb-3">
+                    <label class="form-label">Nome do Ativo</label>
+                    <input class="form-control edt-nome-ativo" required data-parsley-trigger="change" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <label class="form-label">Setor</label>
+                    <input class="form-control edt-setor-ativo" required data-parsley-trigger="change" />
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <label class="form-label">SubSetor</label>
+                    <input class="form-control edt-subsetor-ativo" required data-parsley-trigger="change" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3">
+                    <label class="form-label">Logotipo</label>
+                    <input class="form-control edt-logotipo-ativo" type="file" required data-parsley-trigger="change" />
+                    <input class="form-control edt-logotipo-id-ativo" type="hidden" required data-parsley-trigger="change" />
+                </div>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input chk-ativo-ativo" type="checkbox" data-parsley-required="false" />
+                <label class="form-check-label">Ativo?</label>
+            </div>
+
+        </fieldset>
+    </form>
+}
+
+@EdesoftHelperModal.CreateModal(new ModalHelper
+{
+    Name = "md-crud-ativo-backoffice",
+    Title = new TitleModalHelper
+    {
+        Text = "Cadastro de Ativo"
+    },
+    Body = CreateBodyModalCrudAtivo(),
+    Footer = new FooterModalHelper()
+    {
+        Buttons = new List<ButtonHelper>() { new ButtonHelper { Name = "btn-save", Type = "btn-primary", Text = "Confirmar" } }
+    }
+})

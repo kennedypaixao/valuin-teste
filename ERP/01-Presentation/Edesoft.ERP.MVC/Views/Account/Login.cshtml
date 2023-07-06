@@ -1,0 +1,202 @@
+﻿@using Edesoft.ERP.MVC.MVC.resources;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    @{ Html.RenderPartial("~/Views/Shared/_head.cshtml"); }
+ 
+    <style>
+		.input-icon-block {
+			background-color: #B69350;
+			color: #fff;
+		}
+
+		.btn-brand {
+			background-color: #B69350;
+			border: 1px solid #B69350;
+			color: #fff;
+		}
+
+			.btn-brand:hover {
+				background-color: #E2C275;
+				border: 1px solid #E2C275;
+			}
+
+		.login-links, .login-links label {
+			padding: 0 10px;
+			color: #B69350;
+			font-size: 13px;
+			font-weight: 400;
+		}
+
+			.login-links a:link {
+				color: var(--dark-gold);
+			}
+
+		.login-bg {
+			background: radial-gradient(circle, #194D9C 0%, #001B43 100%)
+		}
+
+		.caption-title {
+			color: #B69350 !important;
+			font-weight: bold !important;
+			font-size: 3.5rem;
+		}
+
+		.text-question {
+			color: #B69350 !important;
+		}
+
+		.login.login-with-news-feed .login-container #text-copyright {
+			text-align: center;
+			color: #001B43;
+			font-weight: 600;
+		}
+
+		.news-feed::after {
+			content: "";
+			position: relative;
+			display: block;
+			width: 22.5px;
+			height: 100vh;
+			background-color: #B69350;
+			margin-left: auto;
+			margin-right: 0;
+		}
+    </style>
+</head>
+<body class='pace-top theme-blue'>
+	<!-- BEGIN #loader -->
+	<div id="loader" class="app-loader">
+		<span class="spinner"></span>
+	</div>
+	<!-- END #loader -->
+	<!-- BEGIN #app -->
+	<div id="app" class="app">
+		<!-- BEGIN login -->
+		<div class="login login-with-news-feed">
+			<!-- BEGIN news-feed -->
+			<div class="news-feed login-bg">
+				<div class="news-image" style=" display: flex;">
+					<img src="~/Content/assets/img/valuin/simbolo_valuin_home.svg" style="vertical-align: middle; width: 95%; margin: 0 auto; display: block;" />
+				</div>
+				<div class="news-caption" style="background: none; top: 0;bottom: auto; ">
+					<h4 class="caption-title">Bem-vindo a Valuin</h4>
+					<div class="paragraph-div">
+						<p>
+							Sabemos que investir pode ser desafiador, mas estamos aqui para tornar isso mais fácil para você.
+							Com nossa metodologia, criamos a mais inovadora plataforma de valuation. Vamos juntos, descobrir o
+							valor justo das principais empresas do mercado, com informações precisas e atualizadas,
+							tomando suas decisões de investimento mais assertivas e rentáveis.
+						</p>
+						<p class="text-question">
+							Pronto para começarmos?
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- END news-feed -->
+			<!-- BEGIN login-container -->
+			<div class="login-container">
+				<!-- BEGIN login-header -->
+				<div class="login-header mb-30px" style="flex-direction: column-reverse;justify-content: center;">
+					<div class="icon">
+						<img src="~/Content/assets/img/Valuin/logo_valuin_desktop.svg" style="width: 400px;height: 100px;object-fit: fill;" />
+					</div>
+				</div>
+				<!-- END login-header -->
+				<!-- BEGIN login-content -->
+				<div class="login-content" style="position:relative">
+					<form action="/Account/Login" method="POST" class="fs-13px">
+						<div class="row">
+							<div class="col-md-12">
+								<label for="emailAddress" class="d-flex align-items-center fs-16px text-gray-dark" style="font-weight: bold;">Investidor (a)</label>
+								<div class="input-group input-group-lg">
+									<span class="input-group-text input-icon-block">
+										<i class="fas fa-user fa-lg"></i>
+									</span>
+									<input type="text" class="form-control h-45px fs-13px" placeholder="Digite seu e-mail ou CPF" id="emailAddress" name="emailAddress" />
+									<button type="button" class="btn btn-white">
+										<i class="fas fa-eye fa-lg"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<br />
+						<div class="row">
+							<div class="col-md-12">
+								<label for="emailAddress" class="d-flex align-items-center fs-16px text-gray-dark" style="font-weight: bold;">Senha</label>
+								<div class="input-group input-group-lg">
+									<span class="input-group-text input-icon-block">
+										<i class="fas fa-lock fa-lg"></i>
+									</span>
+									<input type="password" class="form-control h-45px fs-13px" placeholder="Digite sua senha" id="password" name="password" />
+									<button type="button" class="btn btn-white">
+										<i class="fas fa-eye fa-lg"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<br />
+						<div class="row d-flex flex-row form-floating mb-15px login-links">
+							<div class="form-check mb-30px col-6">
+								<input class="form-check-input" type="checkbox" value="1" id="rememberMe">
+								<label class="form-check-label text-decoration-underline" for="rememberMe">
+									Lembrar-me
+								</label>
+							</div>
+							<div class="col-6">
+								<a class="password-forgot" href="javascript:;" style="float: right;">
+									Esqueci minha senha
+								</a>
+							</div>
+						</div>
+
+						@if (ViewBag.message != "")
+						{
+							<div class="alert alert-danger fade show">@ViewBag.message</div>
+						}
+						<br />
+
+						<div class="row">
+							<div id="captcha" class="d-flex justify-content-center mb-3"></div>
+						</div>
+
+						<div class="mb-15px">
+							<button type="submit" class="btn btn-brand d-block h-45px w-100 btn-lg fs-14px">
+								acessar
+							</button>
+						</div>
+
+						<div class="mb-15px first-time">
+							<h4 style="text-align: center;">Primeira vez aqui?</h4>
+							<a href="javascript:;" class="btn btn-default me-5px d-block h-45px w-100 btn-lg fs-14px">
+								<i class="fas fa-lock fa-lg" style="margin-right: 10px;"></i>
+								Cadastre o seu acesso
+							</a>
+						</div>
+						<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+						</script>
+					</form>
+					<p id="text-copyright">2023 | Todos os direitos reservados | contato@valuin.com.br</p>
+				</div>
+				<!-- END login-content -->
+				<!-- END login-content -->
+			</div>
+			<!-- END login-container -->
+		</div>
+		<!-- END login -->
+		<!-- BEGIN scroll-top-btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+		<!-- END scroll-top-btn -->
+	</div>
+	<!-- END #app -->
+	<!-- ================== BEGIN core-js ================== -->
+	<script src="~/Content/assets/js/vendor.min.js"></script>
+	<script src="~/Content/assets/js/app.min.js"></script>
+	<!-- ================== END core-js ================== -->
+</body>
+</html>

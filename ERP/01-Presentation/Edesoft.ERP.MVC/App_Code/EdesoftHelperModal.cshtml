@@ -1,0 +1,45 @@
+﻿@using Edesoft.ERP.MVC.MVC.Pages.Helpers;
+
+@helper CreateModal(ModalHelper options)
+{
+    <div class="modal @options.Name" data-bs-backdrop="static" data-bs-keyboard="false" data-bs-focus="false" >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable @options.Size">
+            <div class="modal-content">
+                <div class="modal-header">
+                    @if (options.Title.Custom != null)
+                    {
+                        @options.Title.Custom
+                    }
+                    else
+                    {
+                        <h4 class="modal-title">@options.Title.Text</h4>
+                    }
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    @options.Body
+                </div>
+                <div class="modal-footer">
+                    @if (options.Footer.Custom != null)
+                    {
+                        @options.Footer.Custom
+                    }
+                    else
+                    {
+                        foreach (var button in options.Footer.Buttons)
+                        {
+                            @EdesoftHelperButton.CreateButton(button);
+                        }
+                        @EdesoftHelperButton.CreateButton(new ButtonHelper
+                        {
+                            Type = "btn-danger",
+                            Text = "Cancelar",
+                            Dismiss = true
+                        });
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

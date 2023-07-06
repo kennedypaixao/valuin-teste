@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Usuários";
+    ViewBag.Subtitle = "Usuários autorizados a acessar o sistema";
+}
+
+<div class="usuario-wrapper"></div>
+
+<script>
+    helperEdesoft.onready(async () => {
+        await helperEdesoft.Loader.script(helperEdesoft.Functions.getPath("Content/js/Seguranca/Usuario/Index.js"));
+        UsuariosIndexPage.init({
+            context: ".usuario-wrapper",
+            urlViewModal: helperEdesoft.Functions.getPath("Usuario/_modal")
+        });
+    });
+</script>

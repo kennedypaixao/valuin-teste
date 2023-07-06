@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Ativos Backoffice";
+    ViewBag.Subtitle = "Cadastro dos ativos a serem utilizados no sistema";
+}
+
+<div class="ativo-backoffice-wrapper"></div>
+
+<script>
+    helperEdesoft.onready(async () => {
+        await helperEdesoft.Loader.script(helperEdesoft.Functions.getPath("Content/js/Backoffice/Ativos/Index.js"));
+        AtivoBackofficeIndexPage.init({
+            context: ".ativo-backoffice-wrapper",
+            urlViewModal: helperEdesoft.Functions.getPath("AtivosBackoffice/_modal")
+        });
+    });
+</script>

@@ -1,0 +1,33 @@
+﻿<!-- ================== BEGIN core-js ================== -->
+<script src="~/Content/assets/js/vendor.min.js"></script>
+<script src="~/Content/assets/js/app.min.js"></script>
+
+<script src="~/Content/assets/plugins/Devexpress/CLDR/cldr.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/CLDR/event.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/CLDR/supplemental.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/CLDR/unresolved.min.js"></script>
+<script src="~/Content/assets/plugins/Globalize/globalize.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/js/jspdf.umd.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/js/dx.all.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/js/polyfill.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/js/FileSaver.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/js/exceljs.min.js"></script>
+<script src="~/Content/assets/plugins/Devexpress/CLDR/pt.js"></script>
+<script src="~/Content/assets/plugins/lodash/lodash.min.js"></script>
+<script src="~/Content/assets/edesoft/js/modules/helper.jquery.js"></script>
+<script src="~/Content/assets/plugins/jQuery-Mask-Plugin/dist/jquery.mask.js"></script>
+<script src="~/Content/assets/edesoft/js/helper.edesoft.js"></script>
+
+@*specific project*@
+<script src="~/Content/js/common/Edesoft.Project.Context.js"></script>
+
+<!-- ================== END core-js ================== -->
+
+<script type="text/javascript">
+    App.settings({
+        ajaxMode: true,
+        ajaxDefaultUrl: '@Url.Content("~/")',
+        ajaxType: 'GET',
+        ajaxDataType: 'html',
+    });
+</script>

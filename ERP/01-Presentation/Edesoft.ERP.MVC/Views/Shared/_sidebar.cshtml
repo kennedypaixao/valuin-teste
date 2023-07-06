@@ -1,0 +1,147 @@
+﻿<div id="sidebar" class="app-sidebar" style="background-color: #001B43;">
+
+	<style>
+		.menu-item.active .menu-link {
+			background-color: #B69350 !important;
+			color: #fff;
+		}
+
+		.menu-item.active .menu-icon i {
+			color: #fff;
+		}
+
+		.app-with-light-sidebar .app-sidebar .menu .menu-item > .menu-link {
+			color: #B69350;
+		}
+
+		.menu-link .menu-icon i {
+			color: #B69350;
+		}
+
+		.app-with-light-sidebar .app-sidebar .menu .menu-item > .menu-link:hover {
+			color: #755e31;
+		}
+
+		.app-sidebar .menu .menu-item .menu-icon img {
+			max-width: 100%;
+			max-height: 100%;
+			filter: invert(63%) sepia(40%) saturate(493%) hue-rotate(1deg) brightness(87%) contrast(90%);
+		}
+
+		.app-sidebar .menu .menu-item.active .menu-icon img {
+			filter: brightness(0) invert(1);
+		}
+
+		.menu-social {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			margin: 30px auto;
+			width: 100%;
+			max-height: 35px;
+		}
+
+			.menu-social .social-item {
+				width: 35px;
+				height: 35px;
+				padding: 0;
+				margin: 4px;
+			}
+
+				.menu-social .social-item .social-item-img {
+					width: 35px;
+					height: 35px;
+					object-fit: contain;
+				}
+	</style>
+
+	<div class="app-sidebar-content" data-scrollbar="true" data-height="100%" style="display: flex; flex-direction: column; align-items: stretch;">
+		<div class="menu" style="height: 100%; flex: 1;">
+			<div class="menu-profile">
+				<a href="javascript:;" class="menu-profile-link" data-toggle="app-sidebar-profile" data-target="#appSidebarProfileMenu" style="height: 130px;">
+					<div class="menu-profile-cover with-shadow" style="background-image: url(/Content/assets/img/Valuin/imagem_menu.jpeg);"></div>
+				</a>
+			</div>
+			@*@{Html.RenderPartial("~/Views/Shared/_Menu.cshtml"); }*@
+			<div class="menu-item active">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_inicio.svg">
+					</div>
+					<div class="menu-text">Inicio</div>
+				</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_analise_detalhada.svg">
+					</div>
+					<div class="menu-text">Análise detalhada de ativos</div>
+				</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_buscar_ativos.svg">
+					</div>
+					<div class="menu-text">Buscar ativos</div>
+				</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_comparativo_valuation.svg">
+					</div>
+					<div class="menu-text">Comparativo de Valuation</div>
+				</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_minha_carteira.svg">
+					</div>
+					<div class="menu-text">Minha carteira</div>
+				</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_ajuda.svg">
+					</div>
+					<div class="menu-text">Ajuda</div>
+				</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_suporte.svg">
+					</div>
+					<div class="menu-text">Suporte</div>
+				</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">
+					<div class="menu-icon">
+						<img class="menu-link-icon" src="/Content/assets/img/valuin/icone_sobre_plataforma.svg">
+					</div>
+					<div class="menu-text">Sobre a plataforma</div>
+				</a>
+			</div>
+			<div class="menu-header">&nbsp;</div>
+
+		</div>
+
+		<div class="row menu-social">
+			<a href="javascript:;" class="social-item"><img src="/Content/assets/img/valuin/icone_linkedin.svg" class="social-item-img"></a>
+			<a href="javascript:;" class="social-item"><img src="/Content/assets/img/valuin/icone_instagram.svg" class="social-item-img"></a>
+			<a href="javascript:;" class="social-item"><img src="/Content/assets/img/valuin/icone_youtube.svg" class="social-item-img"></a>
+			<a href="javascript:;" class="social-item"><img src="/Content/assets/img/valuin/icone_twitter.svg" class="social-item-img"></a>
+		</div>
+	</div>
+
+</div>
+<div class="app-sidebar-bg"></div>
+<div class="app-sidebar-mobile-backdrop">
+    <a href="#" data-dismiss="app-sidebar-mobile"
+       class="stretched-link"></a>
+</div>
